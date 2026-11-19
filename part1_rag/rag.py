@@ -247,7 +247,10 @@ Return ONLY JSON:
 }}
 Use "aggregate" whenever the question needs counting, totals, averages, rankings or filtering many rows
 (retrieval alone cannot count reliably). Dates are ISO (YYYY-MM-DD); for a year use between.
-For "pedestrian crashes at night" use light_condition contains "Dark". For hotspot rankings prefer the hotspots table.
+Counting questions that combine conditions (crash type, severity, time of day, weather, date range, area) MUST aggregate
+the crashes table: e.g. "pedestrian crashes at night by intersection" = table crashes, filters crash_type eq Pedestrian and
+light_condition contains "Dark", agg count, group_by location. Never derive such counts from hotspot percentages.
+Use the hotspots table for hotspot attributes (rank, recommended intervention, 3-year totals).
 Use "out_of_scope" if the question is unrelated to this road-safety data."""
 
 ANSWER_PROMPT = """You answer questions for {domain} using ONLY the context below.
