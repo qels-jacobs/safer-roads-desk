@@ -6,6 +6,9 @@ import pydeck as pdk
 import streamlit as st
 
 DATA = Path(__file__).parent / "data"
+# Published (read-only) CSV of the agent's Google Sheet - synthetic demo cases only.
+DEFAULT_CASES_URL = ("https://docs.google.com/spreadsheets/d/e/2PACX-1vT3g0wLEpL3dGBp8odBp42FSj8L3n8k6WSu16m3MT0N2oWLaoKBgSqZl8"
+                     "-1bSsl7RIw4mnqnlxYBywe/pub?gid=1042111303&single=true&output=csv")
 PRIORITY_COLOUR = {"P1": [220, 38, 38], "P2": [245, 158, 11], "P3": [37, 99, 235], "REFERRED": [107, 114, 128], "INCOMPLETE": [168, 85, 247]}
 
 
@@ -18,7 +21,10 @@ def base_layers():
 def load_cases(url: str | None):
     if url:
         try:
-            return pd.read_csv(url), "live"
+            df = pd.read_csv(url)
+            if len(df):
+                return df, "live"
+            st.toast("The live sheet has no cases yet (run the n8n agent); showing sample cases.")
         except Exception as e:
             st.toast(f"Could not read the live sheet ({e}); showing sample cases.")
     return pd.read_csv(DATA / "demo_cases.csv"), "sample"
@@ -32,7 +38,7 @@ st.caption("Crash heatmap and hotspots come from the Part 1 knowledge base. Haza
 
 @st.fragment(run_every="30s")
 def live_view():
-    url = st.secrets.get("CASES_CSV_URL")
+    url = st.secrets.get("CASES_CSV_URL", DEFAULT_CASES_URL)
     cases, mode = load_cases(url)
     cases["band"] = cases["priority"].astype(str).str.split(" ").str[0]
     top = st.columns([4, 1])
