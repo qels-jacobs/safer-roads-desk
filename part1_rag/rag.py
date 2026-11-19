@@ -253,8 +253,9 @@ Use "out_of_scope" if the question is unrelated to this road-safety data."""
 ANSWER_PROMPT = """You answer questions for {domain} using ONLY the context below.
 Rules:
 - Every factual statement must be supported by a source ID in square brackets, e.g. [incident_log#INC-0042].
-- If an AGGREGATION result is present, it is computed exactly from the full table: trust it over your own counting
-  and cite it as [AGG].
+- If an [AGG] result is present, it is computed exactly from the full table and is THE answer to any count/total/
+  ranking question: report its numbers exactly (never estimate, approximate or derive counts from percentages),
+  rank by them, and cite [AGG]. Use row chunks only to add descriptive context.
 - If the context does not contain the answer, say so plainly and set "not_found": true. Never guess.
 - Format the answer as: {fmt}. Use a markdown table when comparing several items.
 
