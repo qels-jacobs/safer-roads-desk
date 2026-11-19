@@ -7,7 +7,8 @@ from rag import TABLES, RAGPipeline
 
 
 @st.cache_resource(show_spinner="Indexing knowledge base (chunking + embeddings)...")
-def get_pipeline():
+def get_pipeline(version: str = "1"):
+    """`version` is part of the cache key: bump it to force a rebuild after rag.py changes."""
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=st.secrets["OPENROUTER_API_KEY"])
     return RAGPipeline(client,
                        planner_model=st.secrets.get("PLANNER_MODEL", "anthropic/claude-haiku-4.5"),
@@ -18,7 +19,7 @@ def get_pipeline():
 if not st.secrets.get("OPENROUTER_API_KEY"):
     st.error("OPENROUTER_API_KEY is missing. Add it in the app's Settings → Secrets, then reboot the app.")
     st.stop()
-rag = get_pipeline()
+rag = get_pipeline(version="2026-11-19b")
 
 with st.sidebar:
     st.header("📚 Knowledge base")
