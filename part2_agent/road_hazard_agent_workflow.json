@@ -2,7 +2,7 @@
   "name": "Safer Roads Desk \u00b7 Road Hazard Agent",
   "nodes": [
     {
-      "id": "9c4cfc16-1f1a-471b-b425-4d0c99c57554",
+      "id": "e9eadb18-bf5e-44eb-bdf0-39860ee3b01b",
       "name": "Run Agent (manual)",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
@@ -13,7 +13,7 @@
       "parameters": {}
     },
     {
-      "id": "a9b4dc68-d77c-4a36-ab99-058923bab497",
+      "id": "f45f2ee8-fda4-46ba-a5ab-831a3cf02163",
       "name": "Every 15 min (enable for autonomy)",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
@@ -34,7 +34,7 @@
       "disabled": true
     },
     {
-      "id": "fb684288-64b1-4e7c-b8f8-1a789e668c0a",
+      "id": "37a2e53c-26a3-4773-9938-3af093000c9b",
       "name": "Config",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -46,37 +46,37 @@
         "assignments": {
           "assignments": [
             {
-              "id": "c908595e-109e-4894-96eb-9fb258247d26",
+              "id": "145207c7-1f03-4184-a3d5-5c3a391d2303",
               "name": "reference_base_url",
-              "value": "https://raw.githubusercontent.com/YOUR_GITHUB_USER/safer-roads-desk/main/part1_rag/data",
+              "value": "https://raw.githubusercontent.com/qels-jacobs/safer-roads-desk/main/part1_rag/data",
               "type": "string"
             },
             {
-              "id": "f1095771-d0fd-46c6-8209-880972675ded",
+              "id": "8ff55659-04e1-434a-bb1c-d2502b46dac6",
               "name": "gmail_query",
               "value": "from:me to:me newer_than:7d -subject:\"[Safer Roads Desk]\"",
               "type": "string"
             },
             {
-              "id": "07f373c8-c24f-473a-91b8-b4af8db96121",
+              "id": "d3e94eaa-3175-49e9-af12-3834a742d050",
               "name": "report_to",
               "value": "your.demo.account@gmail.com",
               "type": "string"
             },
             {
-              "id": "945a6537-9407-4a67-9974-f448884c8738",
+              "id": "0ce638c1-fce8-46d2-b220-1b2e9fe75cab",
               "name": "demo_mode",
               "value": "true",
               "type": "string"
             },
             {
-              "id": "e8d4a644-eff7-4948-87f3-d82a24353e86",
+              "id": "e2ae056f-0eee-43f0-8a20-77d37fb0546a",
               "name": "sheet_url",
               "value": "PASTE_GOOGLE_SHEET_URL",
               "type": "string"
             },
             {
-              "id": "c9327911-86e3-4f6a-8398-2d3139a39337",
+              "id": "e87da113-0f0e-4b22-8706-6ba195c14633",
               "name": "command_centre_url",
               "value": "https://YOUR-APP.streamlit.app/command_centre",
               "type": "string"
@@ -87,7 +87,7 @@
       }
     },
     {
-      "id": "be4bff88-febb-40b9-be92-ae755164c905",
+      "id": "15994011-3c52-41b5-8fca-f26583e165d7",
       "name": "Reference Files",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -100,7 +100,7 @@
       }
     },
     {
-      "id": "17ee1d77-ddbb-42fc-b5a9-6a98ee57b648",
+      "id": "30ec6d0c-eb39-4423-8196-0b07b84f4d34",
       "name": "Fetch Reference Data",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
@@ -123,7 +123,7 @@
       "maxTries": 3
     },
     {
-      "id": "548439df-cdc1-459f-a0af-eaeb34467508",
+      "id": "5fed9f72-fcd2-424b-ae81-05d09c49c7c2",
       "name": "Read Existing Cases",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
@@ -150,7 +150,7 @@
       "onError": "continueRegularOutput"
     },
     {
-      "id": "9b200db9-d32a-48fd-bc8e-92117cea88e0",
+      "id": "8f6f9e81-5115-4691-bc81-7eef7800cbfe",
       "name": "Get Hazard Emails",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
@@ -171,7 +171,7 @@
       "executeOnce": true
     },
     {
-      "id": "66e29f90-283d-423b-b44b-189e08355cdd",
+      "id": "730efb60-4e28-4db4-a80e-47d4d754050a",
       "name": "Prepare Emails",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -184,7 +184,7 @@
       }
     },
     {
-      "id": "c60703a3-2900-4a24-a016-8c33af8c4ea1",
+      "id": "1335da65-87e8-4021-817e-6af7949c12d9",
       "name": "Extract Hazard (Claude)",
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
@@ -200,7 +200,7 @@
       "maxTries": 2
     },
     {
-      "id": "1474753f-60ec-4b97-8fde-1d5290178033",
+      "id": "f77048f6-c346-4b80-9b72-ffef49b28cff",
       "name": "Parse, Ground & Normalise",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -213,7 +213,7 @@
       }
     },
     {
-      "id": "1c486922-9dfc-473e-b117-94eae8da726c",
+      "id": "a3930ffe-9385-48b7-a572-4a6603e98f2e",
       "name": "Geocode Address (OpenStreetMap)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
@@ -277,7 +277,7 @@
       "onError": "continueRegularOutput"
     },
     {
-      "id": "afa7ec62-1122-4b5c-bf54-a5ce796d2e9f",
+      "id": "7cbcff61-33be-4827-930b-5c6975244002",
       "name": "Verify, Dedupe & Score",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -290,7 +290,7 @@
       }
     },
     {
-      "id": "49ca01fd-e88f-4b1b-b950-e97011d8d6e2",
+      "id": "2e1c4262-d648-4f6a-84d1-05261f3ef39b",
       "name": "Read Inspector Calendar",
       "type": "n8n-nodes-base.googleCalendar",
       "typeVersion": 1.3,
@@ -317,7 +317,7 @@
       "alwaysOutputData": true
     },
     {
-      "id": "f971707f-d786-4354-96d3-ad6065801425",
+      "id": "b488c140-4ef6-4a3c-8a9d-7c9ce7f212dd",
       "name": "Schedule Inspections",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -330,7 +330,7 @@
       }
     },
     {
-      "id": "08be05b0-8080-42aa-9878-b754fd279c2e",
+      "id": "2131a612-4a15-40bf-a2a3-25d2ebc0ac61",
       "name": "Needs New Event?",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
@@ -347,7 +347,7 @@
           },
           "conditions": [
             {
-              "id": "d207c698-3af4-41dc-af9f-956143abe3cf",
+              "id": "ad2aacde-1eb5-48b4-a738-00fe420ba67f",
               "leftValue": "={{ $json.calendar_action }}",
               "rightValue": "create",
               "operator": {
@@ -362,7 +362,7 @@
       }
     },
     {
-      "id": "2977f3b9-0a7c-4423-a14a-02cffc583d41",
+      "id": "308641d5-f2ad-43a5-af27-837b285642e9",
       "name": "Book Inspection (Calendar)",
       "type": "n8n-nodes-base.googleCalendar",
       "typeVersion": 1.3,
@@ -389,7 +389,7 @@
       }
     },
     {
-      "id": "deb77e20-1f85-4f28-a093-2428f0f28c2b",
+      "id": "c254cccf-7019-4227-9d9d-403a8a31a858",
       "name": "Sheet Rows",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -402,7 +402,7 @@
       }
     },
     {
-      "id": "8b8c1ecf-ba4c-43bc-b9f6-43cc684d6dd9",
+      "id": "8e8fb406-cfa5-4eb1-b559-2ebc5c8b9c2d",
       "name": "Update Command Centre Sheet",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
@@ -434,7 +434,7 @@
       }
     },
     {
-      "id": "912ea49c-582d-4301-a5f4-fcd87f4ffe4e",
+      "id": "bcee751a-c18f-41a9-8cb5-94f1a2561227",
       "name": "Convert to CSV",
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
@@ -450,7 +450,7 @@
       }
     },
     {
-      "id": "cea39adf-e281-400a-80a1-84be48bfe341",
+      "id": "cfa1db24-d2bc-4393-8a03-ae75fdcf1bb0",
       "name": "Build Report",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -463,7 +463,7 @@
       }
     },
     {
-      "id": "d911363a-f18b-4f5e-b43f-6b9577845aaf",
+      "id": "f03c2b3a-c53b-4ca7-9d8a-dd5905567be5",
       "name": "Email Run Report",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
@@ -489,7 +489,7 @@
       }
     },
     {
-      "id": "a0ec7ae1-5690-4a9b-98ea-f9b19a3d0712",
+      "id": "15625b04-8ae9-4027-8afb-d42c03901d4c",
       "name": "Reply Targets",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -502,7 +502,7 @@
       }
     },
     {
-      "id": "c26b3956-9471-4685-b507-4c8233ec78d0",
+      "id": "2fea7821-2a2a-4d86-9ec5-b05651f02575",
       "name": "Draft Reply in Resident's Language (Claude)",
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
@@ -518,7 +518,7 @@
       "maxTries": 2
     },
     {
-      "id": "e70ded24-ada9-4046-abf7-c4f76f1c8294",
+      "id": "85e59556-49b7-4b0d-8b7d-958a3e400857",
       "name": "Assemble Replies",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -531,7 +531,7 @@
       }
     },
     {
-      "id": "14a576eb-f7d8-4cac-b5b9-a674596692b2",
+      "id": "ab46b717-7096-4b66-86b7-fac4341598bd",
       "name": "Send Resident Reply",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
@@ -550,7 +550,7 @@
       }
     },
     {
-      "id": "87e279e8-04cc-4700-ae04-95d292fb0934",
+      "id": "7ebf29f3-6ba1-409b-85a3-5c68f0ad903a",
       "name": "Claude (extraction)",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
@@ -566,7 +566,7 @@
       }
     },
     {
-      "id": "c722ceea-cd4a-4d45-93b0-b157d739b03b",
+      "id": "dd2c861b-0706-4650-afa6-f27234fb12aa",
       "name": "Claude (replies)",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
@@ -582,7 +582,7 @@
       }
     },
     {
-      "id": "931e7621-165c-4ae2-b2ad-a1b27a2f709a",
+      "id": "690a31ad-5911-47b6-9b01-10bccbe25afc",
       "name": "Note 1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -598,7 +598,7 @@
       }
     },
     {
-      "id": "adfe6287-e716-4047-a3c2-5a7a0d714f1f",
+      "id": "772c8808-f9bd-43de-b5cb-bc196639b999",
       "name": "Note 2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -614,7 +614,7 @@
       }
     },
     {
-      "id": "b82d4e74-6fab-4233-a020-403363d5be08",
+      "id": "068b1d12-2c0b-4c01-bdfb-0a1701fa84c7",
       "name": "Note 3",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -630,7 +630,7 @@
       }
     },
     {
-      "id": "a399b9b7-4d56-434f-a100-d5f9dde0a605",
+      "id": "12da0dda-1fe1-4410-a278-2bbc6e75ce8b",
       "name": "Note 4",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,

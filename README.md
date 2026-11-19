@@ -41,7 +41,7 @@ Use a **personal Chrome profile** on your laptop (profile icon → Add → "Pers
 2. Click **uploading an existing file**. Drag in the *contents* of the unzipped folder (README.md, part1_rag, part2_agent) → **Commit changes**.
    - The `.streamlit` folder is hidden. That's fine; you don't need it.
 3. Note your username. The raw data link is:
-   `https://raw.githubusercontent.com/YOUR_USERNAME/safer-roads-desk/main/part1_rag/data`
+   `https://raw.githubusercontent.com/qels-jacobs/safer-roads-desk/main/part1_rag/data`
    Open `.../data/hotspots.csv` in the browser to check it works.
 
 ### Step 3 · Google Sheet for the live map (5 min). Signed in as the demo account:
@@ -52,7 +52,7 @@ Use a **personal Chrome profile** on your laptop (profile icon → Add → "Pers
 
 ### Step 4 · Deploy Part 1 (10 min)
 1. share.streamlit.io → sign in with GitHub → **Create app** → *Deploy a public app from GitHub*.
-2. Repository `YOUR_USERNAME/safer-roads-desk`, branch `main`, main file `part1_rag/app.py`.
+2. Repository `qels-jacobs/safer-roads-desk`, branch `main`, main file `part1_rag/app.py`.
 3. **Advanced settings** → Python **3.12** → paste into Secrets:
    ```toml
    OPENROUTER_API_KEY = "your OpenRouter key"
