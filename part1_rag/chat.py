@@ -58,8 +58,13 @@ def render_visuals(r):
     """Auto-visuals: bar chart for grouped aggregations, map for any retrieved rows that carry coordinates."""
     agg = r.get("agg")
     if agg and isinstance(agg.get("value"), dict) and agg.get("group_by") and agg["value"]:
-        s = pd.Series(agg["value"], name=agg.get("column") or "count").head(15)
-        st.bar_chart(s, horizontal=True, height=min(60 + 28 * len(s), 460))
+        import altair as alt
+        metric = agg.get("column") or "count"
+        df = pd.DataFrame({"group": list(agg["value"].keys()), metric: list(agg["value"].values())}).head(15)
+        chart = alt.Chart(df).mark_bar(color="#60a5fa").encode(
+            x=alt.X(f"{metric}:Q", title=metric), y=alt.Y("group:N", sort="-x", title=None),
+            tooltip=["group", metric]).properties(height=min(60 + 28 * len(df), 460))
+        st.altair_chart(chart, use_container_width=True)
     pts = []
     cited = set(r["answer"].get("citations", []))
     for h in r["hits"]:
