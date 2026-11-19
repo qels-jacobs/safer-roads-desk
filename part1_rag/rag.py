@@ -90,31 +90,55 @@ def build_chunks(dfs: dict[str, pd.DataFrame]) -> list[Chunk]:
 
 
 # ---------------------------------------------------------------- retrieval
+STOP = set("a an and are at by for from how in is it of on or the to was were what which who with".split())
+
+
 def _tok(s: str) -> list[str]:
-    return re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)*", s.lower())
+    return [t for t in re.findall(r"[a-z0-9]+(?:-[a-z0-9]+)*", s.lower()) if t not in STOP]
 
 
 class HybridIndex:
-    """BM25 (exact IDs, codes, numbers) + dense embeddings (meaning), fused with Reciprocal Rank Fusion."""
+    """BM25 (exact IDs, codes, road names) + dense vectors (meaning), fused with Reciprocal Rank Fusion.
 
-    def __init__(self, chunks: list[Chunk], embed_model: str = "BAAI/bge-small-en-v1.5"):
+    Dense vectors: LSA embeddings by default (TF-IDF with word n-grams + truncated SVD to 128 dims). They are
+    built in-process at start-up, with no model download, so the app starts in seconds on a small free host.
+    Set EMBEDDINGS=fastembed (secret/env) to use the BAAI/bge-small-en-v1.5 neural model instead.
+    """
+
+    def __init__(self, chunks: list[Chunk], backend: str = "lsa", embed_model: str = "BAAI/bge-small-en-v1.5"):
         self.chunks = chunks
         self.bm25 = BM25Okapi([_tok(c.text) for c in chunks])
-        self.embedder, self.vecs, self.dense_error = None, None, None
+        self.embedder, self.vecs, self.dense_error, self.backend = None, None, None, backend
+        texts = [c.text for c in chunks]
         try:
-            from fastembed import TextEmbedding
-            self.embedder = TextEmbedding(embed_model)
-            self.vecs = self._embed([c.text for c in chunks])
+            if backend == "fastembed":
+                from fastembed import TextEmbedding
+                self.embedder = TextEmbedding(embed_model)
+                self.vecs = self._embed(texts)
+            else:
+                from sklearn.decomposition import TruncatedSVD
+                from sklearn.feature_extraction.text import TfidfVectorizer
+                self._tfidf = TfidfVectorizer(ngram_range=(1, 2), sublinear_tf=True, min_df=1)
+                X = self._tfidf.fit_transform(texts)
+                self._svd = TruncatedSVD(n_components=min(128, X.shape[1] - 1), random_state=0)
+                self.vecs = self._norm(self._svd.fit_transform(X))
         except Exception as e:  # app still works on keyword search, and says so in the UI
             self.dense_error = str(e)[:200]
 
+    @staticmethod
+    def _norm(v):
+        return v / np.clip(np.linalg.norm(v, axis=1, keepdims=True), 1e-9, None)
+
     @property
     def mode(self) -> str:
-        return "hybrid (BM25 + dense)" if self.vecs is not None else "BM25 only (embedding model unavailable)"
+        if self.vecs is None:
+            return "BM25 only (vector index unavailable)"
+        return "hybrid: BM25 + vectors (" + ("bge-small neural embeddings" if self.backend == "fastembed" else "LSA embeddings") + ")"
 
     def _embed(self, texts):
-        v = np.array(list(self.embedder.embed(texts)))
-        return v / np.linalg.norm(v, axis=1, keepdims=True)
+        if self.backend == "fastembed":
+            return self._norm(np.array(list(self.embedder.embed(texts))))
+        return self._norm(self._svd.transform(self._tfidf.transform(texts)))
 
     def search(self, query: str, k: int = 8, tables: list[str] | None = None, rrf_k: int = 60):
         allowed = [i for i, c in enumerate(self.chunks) if not tables or c.table in tables]
@@ -259,12 +283,12 @@ def categorical_values(dfs) -> str:
 
 
 class RAGPipeline:
-    def __init__(self, llm, planner_model: str, answer_model: str):
+    def __init__(self, llm, planner_model: str, answer_model: str, embeddings: str = "lsa"):
         """llm: an OpenAI-compatible client (OpenRouter)."""
         self.llm, self.planner_model, self.answer_model = llm, planner_model, answer_model
         self.dfs = load_tables()
         self.chunks = build_chunks(self.dfs)
-        self.index = HybridIndex(self.chunks)
+        self.index = HybridIndex(self.chunks, backend=embeddings)
 
     def _chat(self, model, system, messages, max_tokens=1200):
         r = self.llm.chat.completions.create(model=model, max_tokens=max_tokens, temperature=0,

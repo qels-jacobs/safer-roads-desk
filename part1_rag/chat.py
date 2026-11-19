@@ -11,7 +11,8 @@ def get_pipeline():
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=st.secrets["OPENROUTER_API_KEY"])
     return RAGPipeline(client,
                        planner_model=st.secrets.get("PLANNER_MODEL", "anthropic/claude-haiku-4.5"),
-                       answer_model=st.secrets.get("ANSWER_MODEL", "anthropic/claude-sonnet-4.5"))
+                       answer_model=st.secrets.get("ANSWER_MODEL", "anthropic/claude-sonnet-4.5"),
+                       embeddings=st.secrets.get("EMBEDDINGS", "lsa"))
 
 
 if not st.secrets.get("OPENROUTER_API_KEY"):
