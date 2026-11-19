@@ -25,7 +25,8 @@ def load_cases(url: str | None):
             df = pd.read_csv(url)
             if len(df):
                 return df, "live", ""
-            note = "The live sheet has no cases yet. Run the n8n agent."
+            # Live sheet connected but empty: show an honest empty state, not sample data.
+            return pd.read_csv(DATA / "demo_cases.csv").iloc[0:0], "empty", ""
         except Exception as e:
             note = f"Could not read the live sheet ({type(e).__name__})."
     else:
@@ -45,8 +46,9 @@ def live_view():
     cases, mode, note = load_cases(url)
     cases["band"] = cases["priority"].astype(str).str.split(" ").str[0]
     top = st.columns([4, 1])
-    top[0].caption(("🟢 Live from the agent's Google Sheet" if mode == "live" else
-                    f"🟡 Showing sample cases. {note}") + " · refreshes every 30 s")
+    top[0].caption({"live": "🟢 Live from the agent's Google Sheet",
+                    "empty": "🟢 Connected to the agent's Google Sheet: no cases yet. Waiting for the agent to run",
+                    }.get(mode, f"🟡 Showing sample cases. {note}") + " · refreshes every 30 s")
     if top[1].button("🔄 Refresh now", width="stretch"):
         load_cases.clear()
         st.rerun()
