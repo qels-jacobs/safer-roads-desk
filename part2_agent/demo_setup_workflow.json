@@ -1,0 +1,185 @@
+{
+  "name": "Safer Roads Desk \u00b7 Demo Setup",
+  "nodes": [
+    {
+      "id": "851c64b6-008f-4092-9556-bc2d9cf44d0d",
+      "name": "Run Setup Once",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        300
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "8116cf9b-3f6d-4f55-bf58-fb21ca431441",
+      "name": "Setup Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        300
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "ec489a76-6f2e-401d-8e77-6a7e83defeac",
+              "name": "demo_inbox",
+              "value": "your.demo.account@gmail.com",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "c02a3e8d-31f2-44d3-a8c6-4986239efc88",
+      "name": "Demo Complaint Emails",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// DEMO SETUP \"Demo Complaint Emails\": 14 deliberately messy resident emails (all people and addresses fictional).\nconst E = [\n ['Robot not working - Voortrekker & Durban, Bellville',\n  `Hi,\\n\\nThe traffic lights at the corner of Voortrekker Road and Durban Road in Bellville have been completely off since about 7am. Cars are just going through and I nearly saw two taxis collide. Please send someone urgently.\\n\\nThabo Molefe\\n082 555 4410\\nthabo.molefe@demo-resident.co.za`],\n ['traffic lights out!!',\n  `lights at durban rd / voortrekker rd bellville are DEAD. total chaos, people jumping the intersection, someone is going to get killed. pls fix\\n\\n- Priya Naidoo, 083-555-9012, priya.naidoo@demo-resident.co.za`],\n ['Verkeersligte werk nie - Bellville',\n  `Goeie m\u00f4re\\n\\nDie verkeersligte by die kruising van Voortrekkerweg en Durbanweg in Bellville werk glad nie sedert vanoggend nie. Motors ry net deur en voetgangers sukkel om oor te steek. Stuur asseblief dringend iemand.\\n\\nGroete\\nJohan Pretorius\\n082 555 7781\\njohanp@demo-resident.co.za`],\n ['Massive pothole Main Road Claremont',\n  `Good afternoon,\\n\\nThere is a huge pothole outside 45 Main Road, Claremont (near the bus stop). It burst my tyre this morning and cyclists are swerving into traffic to avoid it.\\n\\nRegards,\\nSarah Jacobs\\n+27 72 555 3021\\nsarah.jacobs@demo-resident.co.za`],\n ['Re: pothole Main Rd',\n  `Hi, reporting the pothole outside no. 45 Main Rd in Claremont again - it is getting bigger and full of water now.\\nGrant Williams\\ngrant.w@demo-resident.co.za`],\n ['Zebra crossing faded - kids at risk',\n  `Hello\\n\\nThe pedestrian crossing at AZ Berman Drive and Morgenster Road in Mitchells Plain has faded so badly you can't see it anymore. Hundreds of school children cross there every morning and the cars don't stop.\\n\\nShireen Petersen\\n0615550147\\nshireen.petersen@demo-resident.co.za`],\n ['Isibane sesitrato asisebenzi - Khayelitsha',\n  `Molo\\n\\nIsibane sesitrato kwi-Spine Road kufutshane ne-Lansdowne Road eKhayelitsha asisebenzi iiveki ezimbini ngoku. Kumnyama kakhulu ebusuku kwaye abantu abaninzi bahamba ngeenyawo apha. Nceda nisincede ngokukhawuleza.\\n\\nEnkosi\\nNomvula Mahlangu\\n073 555 0188\\nnomvula.m@demo-resident.co.za`],\n ['Stop sign knocked down Woodstock',\n  `Hi there, the stop sign at Searle Street and Sir Lowry Road in Woodstock has been knocked flat, probably by a truck. Cars coming out of Searle St are not stopping at all.\\n\\nDaniel Smith\\n+27 (0)21 555 3344\\ndaniel.smith@demo-resident.co.za`],\n ['Pothole Belvedere Road',\n  `Morning, there's a deep pothole on Belvedere Road in Claremont, just after the school. Not urgent but it's damaging cars.\\nKevin Moore - kevin.moore@demo-resident.co.za`],\n ['big hole in the road!!!',\n  `there's a big hole in the road near the taxi rank, my car nearly fell in. please fix asap!!\\nLindiwe\\nlindiwe.k@demo-resident.co.za`],\n ['Stormwaterdrein verstop - Athlone',\n  `Hallo\\n\\nDie stormwaterdrein by Klipfonteinweg naby Jan Smutsrylaan in Athlone is heeltemal verstop. Elke keer as dit re\u00ebn staan die water oor die hele baan en motors swaai uit in die ander baan in.\\n\\nMarlene Adams\\nmarlene.adams@demo-resident.co.za`],\n ['Query about my rates account',\n  `Good day, my municipal rates bill for October is double the usual amount. Can someone please check my account?\\nPeter Brown\\npeter.brown@demo-resident.co.za`],\n ['Damaged guardrail on the N2',\n  `Hi, the guardrail on the N2 near Nyanga (by the Borcherds Quarry off-ramp) is badly damaged after an accident last night. Pieces are lying in the emergency lane.\\nAhmed Khan, 084 555 6620, ahmed.khan@demo-resident.co.za`],\n ['Pothole Sea Point',\n  `Hi, pothole outside 300 Main Road, Sea Point, in the left lane. Medium size.\\nMegan Botha, megan.botha@demo-resident.co.za, 076 555 1290`],\n];\nreturn E.map(([subject, body]) => ({ json: { subject, body } }));\n"
+      }
+    },
+    {
+      "id": "bc278ba1-2837-423e-abaf-84f21b3b40c3",
+      "name": "Send Test Email to Demo Inbox",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        660,
+        300
+      ],
+      "parameters": {
+        "sendTo": "={{ $('Setup Config').first().json.demo_inbox }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.body }}",
+        "emailType": "text",
+        "options": {
+          "appendAttribution": false
+        }
+      }
+    },
+    {
+      "id": "560e0d43-70b3-43f2-b16c-c3f94d2e4058",
+      "name": "Inspector Busy Blocks",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// DEMO SETUP \"Inspector Busy Blocks\": pre-existing calendar commitments so the agent must work around them.\nconst OFF = 2 * 3600e3;\nconst sast = ms => new Date(ms + OFF);\nconst iso = ms => sast(ms).toISOString().slice(0, 19) + '+02:00';\nfunction workdays(n) { // next n working days (incl. today) at 00:00 SAST, as UTC ms\n  const out = []; let d = sast(Date.now()); d.setUTCHours(0, 0, 0, 0);\n  let ms = d.getTime() - OFF;\n  while (out.length < n) { const wd = sast(ms).getUTCDay(); if (wd !== 0 && wd !== 6) out.push(ms); ms += 86400e3; }\n  return out;\n}\nconst [d0, d1] = workdays(2);\nconst at = (day, h) => day + h * 3600e3;\nconst nowH = sast(Date.now()).getUTCHours();\nconst blocks = [\n  ['INS-01', 'Depot safety meeting', at(d0, Math.min(Math.max(nowH + 1, 8), 14)), 2], // blocks the next slots today\n  ['INS-01', 'Site visit Tygervalley', at(d1, 8), 2],\n  ['INS-02', 'Court appearance (claims)', at(d0, 13), 3],\n  ['INS-03', 'Training: road marking standards', at(d1, 8), 4],\n  ['INS-04', 'Community road-safety forum, Khayelitsha', at(d1, 9), 3],\n  ['INS-04', 'Contractor handover Mitchells Plain', at(d0, 14), 2],\n];\nreturn blocks.map(([ins, what, s, hrs]) => ({ json: { summary: `[${ins}] Busy: ${what}`, start: iso(s), end: iso(s + hrs * 3600e3) } }));\n"
+      }
+    },
+    {
+      "id": "9786c53c-baa2-48e1-9355-f0fba8cc08aa",
+      "name": "Create Busy Event",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.3,
+      "position": [
+        1100,
+        300
+      ],
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "primary",
+          "mode": "list",
+          "cachedResultName": "primary"
+        },
+        "start": "={{ $json.start }}",
+        "end": "={{ $json.end }}",
+        "additionalFields": {
+          "summary": "={{ $json.summary }}",
+          "color": "8"
+        }
+      }
+    },
+    {
+      "id": "be621738-479b-4ebd-8cb9-4c108e54b1a4",
+      "name": "Setup note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        200,
+        60
+      ],
+      "parameters": {
+        "content": "## Demo setup (run once before the demo)\nSends 14 messy resident emails (English, Afrikaans, isiXhosa, duplicates, a non-road query, a national-road report, one with no location) to the demo inbox and creates busy blocks in the inspectors' calendar.",
+        "height": 180,
+        "width": 900,
+        "color": 3
+      }
+    }
+  ],
+  "connections": {
+    "Run Setup Once": {
+      "main": [
+        [
+          {
+            "node": "Setup Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Setup Config": {
+      "main": [
+        [
+          {
+            "node": "Demo Complaint Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Demo Complaint Emails": {
+      "main": [
+        [
+          {
+            "node": "Send Test Email to Demo Inbox",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Test Email to Demo Inbox": {
+      "main": [
+        [
+          {
+            "node": "Inspector Busy Blocks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Inspector Busy Blocks": {
+      "main": [
+        [
+          {
+            "node": "Create Busy Event",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

@@ -1,0 +1,1 @@
+case_id,priority,risk_score,score_breakdown,priority_reason,hazard_code,hazard_label,department,location_text,road,cross_street,suburb,area,lat,lon,geocode_status,hotspot_id,reports,languages,inspector,inspection_start,schedule_note,first_reported,due_by,flags,corrections,sources,residents,replied_email_ids,updated_at

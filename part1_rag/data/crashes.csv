@@ -1,0 +1,435 @@
+crash_id,date,time,area,suburb,location,hotspot_id,road_name,lat,lon,crash_type,severity,light_condition,weather,road_surface,vehicles,casualties,pedestrian_involved,contributing_factor
+CR-00001,2023-07-04,11:41,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90097,18.62984,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00002,2023-07-09,08:34,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90091,18.62966,Pedestrian,Serious,Daylight,Rain,Wet,1,1,Yes,Pedestrian crossing against signal
+CR-00003,2023-07-13,23:33,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02357,18.65955,Single vehicle,Slight,Dark - unlit,Clear,Dry,1,2,No,Pothole / road surface defect
+CR-00004,2023-07-14,13:27,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92101,18.42352,Cyclist,Damage only,Daylight,Clear,Dry,1,0,No,Unsafe overtaking
+CR-00005,2023-07-14,14:20,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91558,18.38815,Rear-end,Damage only,Daylight,Rain,Wet,2,0,No,Sudden braking for pothole
+CR-00006,2023-07-15,08:42,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04211,18.61787,Side-impact,Serious,Daylight,Clear,Dry,2,3,No,Traffic signal outage
+CR-00007,2023-07-22,09:16,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96184,18.49999,Pedestrian,Slight,Daylight,Rain,Wet,1,3,Yes,Poor street lighting
+CR-00008,2023-07-22,06:19,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96149,18.50013,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Driving under the influence
+CR-00009,2023-07-24,15:04,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91513,18.3874,Rear-end,Fatal,Daylight,Rain,Wet,2,1,No,Sudden braking for pothole
+CR-00010,2023-07-29,10:09,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04203,18.61796,Cyclist,Damage only,Daylight,Rain,Wet,1,0,No,Driver failed to yield
+CR-00011,2023-07-31,18:59,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04489,18.68067,Pedestrian,Fatal,Dark - unlit,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00012,2023-08-01,09:00,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92856,18.43809,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00013,2023-08-01,15:38,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.9282,18.4392,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Following too closely
+CR-00014,2023-08-06,17:40,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98282,18.46605,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00015,2023-08-07,22:12,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90057,18.62889,Pedestrian,Fatal,Dark - lit,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00016,2023-08-18,12:09,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.9302,18.6205,Side-impact,Serious,Daylight,Clear,Dry,2,1,No,Traffic signal outage
+CR-00017,2023-08-25,09:25,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04174,18.61872,Rear-end,Slight,Daylight,Clear,Dry,2,1,No,Following too closely
+CR-00018,2023-08-28,11:08,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92114,18.42392,Pedestrian,Slight,Daylight,Rain,Wet,1,3,Yes,Pedestrian crossing against signal
+CR-00019,2023-09-02,13:01,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92175,18.42426,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00020,2023-09-03,17:19,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04164,18.61812,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00021,2023-09-08,21:51,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92099,18.42261,Cyclist,Slight,Dark - unlit,Clear,Dry,1,3,No,Unsafe overtaking
+CR-00022,2023-09-08,05:09,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92072,18.42348,Cyclist,Damage only,Dark - lit,Clear,Dry,1,0,No,Unsafe overtaking
+CR-00023,2023-09-18,10:57,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.921,18.42407,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00024,2023-09-19,10:40,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00367,18.46723,Rear-end,Serious,Daylight,Clear,Dry,2,1,No,Sudden braking for pothole
+CR-00025,2023-09-23,23:11,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02224,18.65962,Side-impact,Damage only,Dark - unlit,Clear,Dry,2,0,No,Traffic signal outage
+CR-00026,2023-09-24,09:23,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.8882,18.6337,Rear-end,Serious,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00027,2023-09-27,23:12,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00493,18.46754,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,1,Yes,Driver failed to yield
+CR-00028,2023-09-28,09:30,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91925,18.41856,Rear-end,Slight,Daylight,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00029,2023-09-28,00:15,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96267,18.49918,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00030,2023-09-28,11:22,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04296,18.61812,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00031,2023-10-05,05:02,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.0033,18.4673,Pedestrian,Slight,Dark - lit,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00032,2023-10-08,18:14,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97834,18.56291,Single vehicle,Fatal,Dark - unlit,Clear,Dry,1,3,No,Pothole / road surface defect
+CR-00033,2023-10-10,05:43,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02265,18.66012,Rear-end,Damage only,Dark - unlit,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00034,2023-10-12,17:31,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04218,18.61855,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00035,2023-10-13,02:24,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02228,18.66086,Single vehicle,Damage only,Dark - unlit,Clear,Dry,1,0,No,Driving under the influence
+CR-00036,2023-10-20,15:33,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.93011,18.43809,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00037,2023-10-21,17:47,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.0232,18.6602,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00038,2023-10-23,16:45,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04146,18.61759,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00039,2023-10-28,20:39,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92148,18.42466,Pedestrian,Serious,Dark - lit,Clear,Dry,1,1,Yes,Excessive speed
+CR-00040,2023-10-30,19:14,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90029,18.6297,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Following too closely
+CR-00041,2023-11-04,17:33,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90053,18.62946,Pedestrian,Fatal,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00042,2023-11-05,23:22,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96144,18.49906,Side-impact,Slight,Dark - lit,Clear,Dry,2,1,No,Failed to yield at stop sign
+CR-00043,2023-11-05,12:43,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96135,18.49957,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00044,2023-11-06,06:21,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93033,18.6196,Side-impact,Slight,Daylight,Clear,Dry,2,3,No,Ran red light
+CR-00045,2023-11-06,07:40,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02408,18.65968,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00046,2023-11-10,20:34,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93042,18.62115,Side-impact,Slight,Dark - lit,Clear,Dry,2,1,No,Ran red light
+CR-00047,2023-11-11,13:44,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90106,18.62969,Single vehicle,Damage only,Daylight,Rain,Wet,1,0,No,Pothole / road surface defect
+CR-00048,2023-11-20,15:44,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04626,18.67999,Head-on,Serious,Daylight,Clear,Dry,2,3,No,Unsafe overtaking
+CR-00049,2023-11-26,20:05,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.89988,18.6285,Pedestrian,Serious,Dark - lit,Rain,Wet,1,1,Yes,Pedestrian crossing against signal
+CR-00050,2023-11-27,13:26,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.9014,18.62912,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Distracted driving (phone)
+CR-00051,2023-12-02,12:23,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91517,18.38687,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00052,2023-12-10,11:21,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93074,18.62037,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00053,2023-12-10,09:06,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04712,18.68184,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Poor street lighting
+CR-00054,2023-12-21,22:48,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.89013,18.63494,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00055,2023-12-24,00:56,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97883,18.56499,Pedestrian,Fatal,Dark - unlit,Rain,Wet,1,2,Yes,Poor street lighting
+CR-00056,2024-01-01,09:33,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88987,18.63366,Side-impact,Serious,Daylight,Clear,Dry,2,3,No,Failed to yield at stop sign
+CR-00057,2024-01-01,07:36,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98364,18.46502,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Pothole / road surface defect
+CR-00058,2024-01-01,12:39,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04288,18.61694,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00059,2024-01-03,05:27,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.9228,18.42288,Rear-end,Slight,Dark - lit,Clear,Dry,2,1,No,Following too closely
+CR-00060,2024-01-04,07:17,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00343,18.46864,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Driver failed to yield
+CR-00061,2024-01-07,09:49,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04171,18.61777,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Following too closely
+CR-00062,2024-01-09,11:31,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91488,18.38715,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00063,2024-01-12,02:40,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04183,18.61704,Cyclist,Damage only,Dark - lit,Clear,Dry,1,0,No,Unsafe overtaking
+CR-00064,2024-01-16,16:04,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90045,18.62979,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Excessive speed
+CR-00065,2024-01-16,14:29,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04156,18.61702,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Excessive speed
+CR-00066,2024-01-20,06:37,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96305,18.49926,Side-impact,Slight,Daylight,Clear,Dry,2,3,No,Traffic signal outage
+CR-00067,2024-01-23,17:47,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97813,18.56403,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Following too closely
+CR-00068,2024-01-24,13:42,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91868,18.41863,Side-impact,Serious,Daylight,Clear,Dry,2,1,No,Failed to yield at stop sign
+CR-00069,2024-01-25,19:09,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92089,18.42416,Pedestrian,Serious,Dark - unlit,Clear,Dry,1,2,Yes,Poor street lighting
+CR-00070,2024-01-31,21:57,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.89993,18.62895,Rear-end,Damage only,Dark - unlit,Clear,Dry,2,0,No,Following too closely
+CR-00071,2024-02-08,17:27,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00403,18.46868,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00072,2024-02-09,16:04,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96242,18.49928,Side-impact,Fatal,Daylight,Clear,Dry,2,3,No,Ran red light
+CR-00073,2024-02-12,22:21,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96123,18.50118,Side-impact,Slight,Dark - lit,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00074,2024-02-15,12:19,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.92994,18.6202,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00075,2024-02-17,19:32,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04555,18.68046,Pedestrian,Serious,Dark - lit,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00076,2024-02-20,14:46,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04196,18.6179,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00077,2024-03-04,22:14,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02362,18.66066,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00078,2024-03-05,21:32,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96294,18.49904,Rear-end,Slight,Dark - unlit,Clear,Dry,2,1,No,Sudden braking for pothole
+CR-00079,2024-03-11,20:04,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02225,18.65999,Pedestrian,Serious,Dark - unlit,Clear,Dry,1,1,Yes,Driver failed to yield
+CR-00080,2024-03-15,10:41,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92068,18.42297,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Poor street lighting
+CR-00081,2024-03-15,07:25,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00452,18.46777,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00082,2024-03-17,13:06,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96319,18.50064,Rear-end,Slight,Daylight,Clear,Dry,2,3,No,Following too closely
+CR-00083,2024-03-22,08:17,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96189,18.50069,Rear-end,Slight,Daylight,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00084,2024-03-23,16:46,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91925,18.41883,Rear-end,Fatal,Daylight,Clear,Dry,2,1,No,Following too closely
+CR-00085,2024-03-25,10:47,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90095,18.6294,Pedestrian,Slight,Daylight,Rain,Wet,1,3,Yes,Excessive speed
+CR-00086,2024-03-25,14:02,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04269,18.61877,Rear-end,Slight,Daylight,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00087,2024-03-27,14:35,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04206,18.61837,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00088,2024-03-28,05:48,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97963,18.5631,Rear-end,Damage only,Dark - unlit,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00089,2024-03-29,09:09,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.9005,18.62967,Rear-end,Serious,Daylight,Clear,Dry,2,3,No,Sudden braking for pothole
+CR-00090,2024-04-02,17:27,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04528,18.67993,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Pothole / road surface defect
+CR-00091,2024-04-04,16:04,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91761,18.41886,Rear-end,Damage only,Daylight,Rain,Wet,2,0,No,Following too closely
+CR-00092,2024-04-05,11:23,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04119,18.61741,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00093,2024-04-06,09:25,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90074,18.62847,Cyclist,Damage only,Daylight,Clear,Dry,1,0,No,Driver failed to yield
+CR-00094,2024-04-06,09:45,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00403,18.46796,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00095,2024-04-12,13:19,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04156,18.61873,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00096,2024-04-13,23:54,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96254,18.50081,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Following too closely
+CR-00097,2024-04-13,18:20,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.0458,18.68205,Pedestrian,Serious,Dark - lit,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00098,2024-04-14,06:55,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92782,18.43815,Side-impact,Slight,Daylight,Clear,Dry,2,3,No,Failed to yield at stop sign
+CR-00099,2024-04-19,08:57,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98417,18.46652,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00100,2024-04-21,13:21,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90002,18.62945,Cyclist,Slight,Daylight,Clear,Dry,1,3,No,Driver failed to yield
+CR-00101,2024-04-22,13:53,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88878,18.63403,Side-impact,Serious,Daylight,Rain,Wet,2,2,No,Failed to yield at stop sign
+CR-00102,2024-04-22,13:07,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92933,18.43935,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Pothole / road surface defect
+CR-00103,2024-04-24,17:10,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91875,18.41932,Rear-end,Slight,Daylight,Clear,Dry,2,1,No,Distracted driving (phone)
+CR-00104,2024-04-28,22:21,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04535,18.67982,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00105,2024-04-29,05:56,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.9625,18.49978,Pedestrian,Slight,Dark - lit,Clear,Dry,1,2,Yes,Poor street lighting
+CR-00106,2024-04-30,21:38,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90093,18.62859,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00107,2024-05-01,08:26,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98361,18.46486,Pedestrian,Serious,Daylight,Rain,Wet,1,3,Yes,Poor street lighting
+CR-00108,2024-05-01,05:54,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04099,18.61719,Rear-end,Slight,Dark - lit,Clear,Dry,2,1,No,Distracted driving (phone)
+CR-00109,2024-05-05,22:20,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93009,18.62068,Single vehicle,Damage only,Dark - lit,Rain,Wet,1,0,No,Pothole / road surface defect
+CR-00110,2024-05-07,02:14,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02326,18.65888,Pedestrian,Slight,Dark - lit,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00111,2024-05-07,18:21,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02336,18.65995,Pedestrian,Serious,Dark - lit,Rain,Wet,1,2,Yes,Poor street lighting
+CR-00112,2024-05-08,01:34,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.9163,18.38894,Pedestrian,Serious,Dark - lit,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00113,2024-05-08,09:29,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02377,18.66107,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00114,2024-05-11,00:23,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02334,18.66073,Pedestrian,Fatal,Dark - lit,Clear,Dry,1,3,Yes,Poor street lighting
+CR-00115,2024-05-11,19:31,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97782,18.56499,Side-impact,Slight,Dark - unlit,Clear,Dry,2,2,No,Traffic signal outage
+CR-00116,2024-05-12,22:23,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90146,18.63042,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00117,2024-05-15,15:46,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92202,18.42365,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Driver failed to yield
+CR-00118,2024-05-24,17:54,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91947,18.41807,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00119,2024-05-26,09:17,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91837,18.41925,Side-impact,Slight,Daylight,Clear,Dry,2,1,No,Traffic signal outage
+CR-00120,2024-05-28,11:03,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91868,18.41864,Pedestrian,Serious,Daylight,Rain,Wet,1,2,Yes,Pedestrian crossing against signal
+CR-00121,2024-05-28,15:00,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.9802,18.56322,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Excessive speed
+CR-00122,2024-05-29,12:53,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90126,18.63,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00123,2024-06-01,08:00,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04214,18.61815,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00124,2024-06-03,13:46,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91777,18.41726,Side-impact,Slight,Daylight,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00125,2024-06-05,10:07,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04511,18.68198,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Poor street lighting
+CR-00126,2024-06-10,14:46,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04121,18.61858,Pedestrian,Slight,Daylight,Rain,Wet,1,2,Yes,Excessive speed
+CR-00127,2024-06-11,14:09,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00376,18.46791,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00128,2024-06-13,07:01,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90144,18.63047,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00129,2024-06-14,18:06,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.047,18.68044,Pedestrian,Serious,Dark - unlit,Rain,Wet,1,2,Yes,Driver failed to yield
+CR-00130,2024-06-19,00:06,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04513,18.68091,Single vehicle,Slight,Dark - unlit,Clear,Dry,1,2,No,Excessive speed
+CR-00131,2024-06-21,01:02,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92919,18.43804,Side-impact,Damage only,Dark - unlit,Rain,Wet,2,0,No,Failed to yield at stop sign
+CR-00132,2024-06-23,13:16,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04189,18.61862,Side-impact,Slight,Daylight,Rain,Wet,2,3,No,Traffic signal outage
+CR-00133,2024-06-26,10:40,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97842,18.56308,Side-impact,Serious,Daylight,Clear,Dry,2,2,No,Traffic signal outage
+CR-00134,2024-06-30,09:40,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.901,18.63022,Single vehicle,Slight,Daylight,Clear,Dry,1,3,No,Driving under the influence
+CR-00135,2024-07-09,12:20,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92093,18.42333,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Following too closely
+CR-00136,2024-07-20,14:03,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96169,18.50025,Side-impact,Slight,Daylight,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00137,2024-07-23,09:10,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97952,18.56327,Single vehicle,Slight,Daylight,Rain,Wet,1,3,No,Pothole / road surface defect
+CR-00138,2024-07-28,20:04,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98254,18.46605,Side-impact,Damage only,Dark - lit,Rain,Wet,2,0,No,Failed to yield at stop sign
+CR-00139,2024-07-30,19:14,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91474,18.38715,Pedestrian,Slight,Dark - lit,Clear,Dry,1,3,Yes,Excessive speed
+CR-00140,2024-07-30,09:01,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04119,18.6182,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00141,2024-08-01,06:48,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04628,18.68068,Side-impact,Slight,Daylight,Clear,Dry,2,3,No,Traffic signal outage
+CR-00142,2024-08-02,12:13,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90173,18.62881,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00143,2024-08-06,09:53,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98399,18.46626,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Driving under the influence
+CR-00144,2024-08-06,18:36,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96256,18.50035,Side-impact,Damage only,Dark - unlit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00145,2024-08-08,16:13,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91543,18.38858,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00146,2024-08-09,02:27,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.0234,18.65976,Rear-end,Damage only,Dark - unlit,Clear,Dry,2,0,No,Following too closely
+CR-00147,2024-08-12,05:57,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92121,18.42451,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00148,2024-08-13,17:22,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90005,18.63068,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00149,2024-08-13,08:06,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92077,18.4235,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Excessive speed
+CR-00150,2024-08-14,18:32,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04164,18.61727,Pedestrian,Serious,Dark - lit,Rain,Wet,1,3,Yes,Pedestrian crossing against signal
+CR-00151,2024-08-14,16:02,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02198,18.65951,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Excessive speed
+CR-00152,2024-08-15,22:05,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88987,18.63302,Side-impact,Slight,Dark - lit,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00153,2024-08-16,07:27,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98182,18.4672,Rear-end,Slight,Daylight,Clear,Dry,2,1,No,Following too closely
+CR-00154,2024-08-16,06:44,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04316,18.61712,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Pothole / road surface defect
+CR-00155,2024-08-19,22:20,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92234,18.42333,Single vehicle,Damage only,Dark - lit,Clear,Dry,1,0,No,Pothole / road surface defect
+CR-00156,2024-08-25,13:13,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97803,18.56372,Rear-end,Damage only,Daylight,Rain,Wet,2,0,No,Following too closely
+CR-00157,2024-08-31,09:42,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04639,18.6813,Pedestrian,Fatal,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00158,2024-09-01,10:37,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02273,18.65977,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00159,2024-09-05,16:10,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02385,18.661,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00160,2024-09-09,14:19,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97997,18.56442,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Poor street lighting
+CR-00161,2024-09-16,08:24,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00369,18.46819,Single vehicle,Slight,Daylight,Clear,Dry,1,2,No,Driving under the influence
+CR-00162,2024-09-22,08:45,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02186,18.66119,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00163,2024-09-25,17:05,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00436,18.46908,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00164,2024-09-26,14:16,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04164,18.61725,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Poor street lighting
+CR-00165,2024-10-01,09:33,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.92887,18.61906,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00166,2024-10-07,00:45,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93019,18.62044,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Ran red light
+CR-00167,2024-10-07,14:36,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98309,18.46575,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Excessive speed
+CR-00168,2024-10-12,15:10,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02383,18.65943,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Excessive speed
+CR-00169,2024-10-15,01:12,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04704,18.68067,Pedestrian,Slight,Dark - unlit,Rain,Wet,1,2,Yes,Driver failed to yield
+CR-00170,2024-10-17,07:42,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00306,18.46696,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Poor street lighting
+CR-00171,2024-10-19,06:02,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.92965,18.61953,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00172,2024-10-21,11:40,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98332,18.4656,Rear-end,Slight,Daylight,Clear,Dry,2,3,No,Following too closely
+CR-00173,2024-10-22,19:35,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91656,18.38792,Side-impact,Slight,Dark - lit,Clear,Dry,2,1,No,Failed to yield at stop sign
+CR-00174,2024-10-22,15:18,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92855,18.43857,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00175,2024-10-24,20:02,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98194,18.46706,Rear-end,Slight,Dark - lit,Clear,Dry,2,1,No,Sudden braking for pothole
+CR-00176,2024-10-29,01:51,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02329,18.65884,Pedestrian,Slight,Dark - lit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00177,2024-10-31,23:38,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04525,18.68126,Rear-end,Damage only,Dark - lit,Rain,Wet,2,0,No,Distracted driving (phone)
+CR-00178,2024-11-08,07:45,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92109,18.42278,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Excessive speed
+CR-00179,2024-11-10,18:04,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91847,18.41919,Pedestrian,Slight,Dark - lit,Clear,Dry,1,2,Yes,Excessive speed
+CR-00180,2024-11-10,02:11,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.9838,18.46555,Rear-end,Serious,Dark - lit,Clear,Dry,2,3,No,Following too closely
+CR-00181,2024-11-15,19:32,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02359,18.66108,Pedestrian,Serious,Dark - unlit,Clear,Dry,1,2,Yes,Excessive speed
+CR-00182,2024-11-20,13:44,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.89993,18.6285,Side-impact,Slight,Daylight,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00183,2024-11-20,07:41,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93013,18.62109,Rear-end,Slight,Daylight,Clear,Dry,2,1,No,Following too closely
+CR-00184,2024-11-23,11:34,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04715,18.68035,Side-impact,Slight,Daylight,Rain,Wet,2,2,No,Traffic signal outage
+CR-00185,2024-11-26,16:05,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00487,18.46687,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00186,2024-11-26,07:13,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97935,18.56438,Single vehicle,Slight,Daylight,Clear,Dry,1,1,No,Pothole / road surface defect
+CR-00187,2024-11-27,11:30,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97882,18.56384,Side-impact,Damage only,Daylight,Rain,Wet,2,0,No,Failed to yield at stop sign
+CR-00188,2024-11-28,17:54,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88986,18.63455,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00189,2024-11-28,13:31,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96085,18.49896,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00190,2024-11-28,19:15,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02372,18.6599,Side-impact,Serious,Dark - lit,Clear,Dry,2,1,No,Traffic signal outage
+CR-00191,2024-12-03,13:00,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.9283,18.4389,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Following too closely
+CR-00192,2024-12-08,13:25,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92279,18.42298,Rear-end,Fatal,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00193,2024-12-08,12:05,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04554,18.6803,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00194,2024-12-11,16:34,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.89959,18.62967,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00195,2024-12-14,01:50,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97789,18.56344,Pedestrian,Serious,Dark - unlit,Clear,Dry,1,1,Yes,Excessive speed
+CR-00196,2024-12-16,01:23,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00392,18.46777,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00197,2024-12-20,05:06,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04519,18.67994,Single vehicle,Slight,Dark - unlit,Clear,Dry,1,2,No,Pothole / road surface defect
+CR-00198,2024-12-21,11:34,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.9216,18.42331,Rear-end,Slight,Daylight,Clear,Dry,2,3,No,Following too closely
+CR-00199,2024-12-25,17:48,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97852,18.56514,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00200,2024-12-29,08:08,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04123,18.61748,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00201,2024-12-29,02:41,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02311,18.65948,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,2,Yes,Excessive speed
+CR-00202,2025-01-05,08:46,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00467,18.46843,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00203,2025-01-10,17:31,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98279,18.46663,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00204,2025-01-10,10:51,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96098,18.50029,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00205,2025-01-10,08:16,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04234,18.61818,Rear-end,Slight,Daylight,Rain,Wet,2,3,No,Following too closely
+CR-00206,2025-01-10,09:00,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02356,18.65897,Head-on,Damage only,Daylight,Clear,Dry,2,0,No,Unsafe overtaking
+CR-00207,2025-01-12,16:03,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91667,18.3878,Side-impact,Serious,Daylight,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00208,2025-01-23,15:38,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96293,18.50084,Rear-end,Serious,Daylight,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00209,2025-01-25,10:53,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88891,18.63432,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00210,2025-01-25,23:07,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04551,18.68094,Pedestrian,Fatal,Dark - lit,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00211,2025-01-28,00:02,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.9007,18.62868,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00212,2025-01-31,14:03,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04196,18.61781,Pedestrian,Serious,Daylight,Rain,Wet,1,2,Yes,Pedestrian crossing against signal
+CR-00213,2025-02-04,10:29,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88866,18.63518,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00214,2025-02-08,21:10,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96291,18.50023,Side-impact,Damage only,Dark - unlit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00215,2025-02-08,16:45,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.9781,18.56372,Single vehicle,Slight,Daylight,Clear,Dry,1,2,No,Pothole / road surface defect
+CR-00216,2025-02-12,14:52,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91552,18.3876,Rear-end,Serious,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00217,2025-02-13,17:04,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88956,18.6352,Side-impact,Fatal,Daylight,Clear,Dry,2,3,No,Ran red light
+CR-00218,2025-02-13,19:25,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98233,18.46686,Pedestrian,Serious,Dark - lit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00219,2025-02-14,20:02,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02248,18.6597,Pedestrian,Serious,Dark - lit,Clear,Dry,1,1,Yes,Poor street lighting
+CR-00220,2025-02-21,07:36,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91936,18.41771,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00221,2025-02-21,08:40,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98416,18.46674,Pedestrian,Fatal,Daylight,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00222,2025-02-21,20:51,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02344,18.66015,Head-on,Damage only,Dark - lit,Clear,Dry,2,0,No,Unsafe overtaking
+CR-00223,2025-03-01,11:48,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.92977,18.62073,Side-impact,Damage only,Daylight,Rain,Wet,2,0,No,Ran red light
+CR-00224,2025-03-03,21:41,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98395,18.46558,Pedestrian,Slight,Dark - lit,Clear,Dry,1,2,Yes,Excessive speed
+CR-00225,2025-03-07,20:24,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04697,18.68086,Head-on,Slight,Dark - lit,Rain,Wet,2,3,No,Driving under the influence
+CR-00226,2025-03-09,06:17,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.9289,18.62035,Side-impact,Fatal,Daylight,Clear,Dry,2,1,No,Traffic signal outage
+CR-00227,2025-03-12,11:03,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.9165,18.38816,Rear-end,Serious,Daylight,Clear,Dry,2,2,No,Following too closely
+CR-00228,2025-03-13,10:33,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91437,18.38919,Side-impact,Serious,Daylight,Clear,Dry,2,2,No,Traffic signal outage
+CR-00229,2025-03-14,20:23,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04198,18.61832,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Traffic signal outage
+CR-00230,2025-03-15,20:30,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.89035,18.63345,Rear-end,Slight,Dark - lit,Clear,Dry,2,3,No,Following too closely
+CR-00231,2025-03-15,07:29,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04234,18.61866,Cyclist,Damage only,Daylight,Clear,Dry,1,0,No,Unsafe overtaking
+CR-00232,2025-03-21,06:12,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93,18.62042,Rear-end,Damage only,Daylight,Rain,Wet,2,0,No,Distracted driving (phone)
+CR-00233,2025-03-21,12:03,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91925,18.41846,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00234,2025-03-23,08:36,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04188,18.61905,Cyclist,Slight,Daylight,Clear,Dry,1,2,No,Driver failed to yield
+CR-00235,2025-03-24,12:27,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93099,18.62049,Rear-end,Slight,Daylight,Clear,Dry,2,1,No,Distracted driving (phone)
+CR-00236,2025-03-27,13:21,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96267,18.50003,Pedestrian,Serious,Daylight,Rain,Wet,1,2,Yes,Excessive speed
+CR-00237,2025-03-29,05:55,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.9282,18.43926,Side-impact,Serious,Dark - lit,Clear,Dry,2,2,No,Traffic signal outage
+CR-00238,2025-03-30,20:13,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.9011,18.6295,Cyclist,Slight,Dark - lit,Clear,Dry,1,1,No,Unsafe overtaking
+CR-00239,2025-04-03,14:22,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90037,18.62969,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00240,2025-04-04,16:04,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02322,18.66016,Pedestrian,Fatal,Daylight,Rain,Wet,1,2,Yes,Pedestrian crossing against signal
+CR-00241,2025-04-05,20:34,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97907,18.56414,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,3,Yes,Excessive speed
+CR-00242,2025-04-07,20:02,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97843,18.56446,Pedestrian,Slight,Dark - lit,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00243,2025-04-09,17:07,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02391,18.65997,Rear-end,Fatal,Daylight,Rain,Wet,2,1,No,Sudden braking for pothole
+CR-00244,2025-04-10,07:08,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92879,18.43932,Single vehicle,Slight,Daylight,Clear,Dry,1,1,No,Driving under the influence
+CR-00245,2025-04-20,02:42,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02366,18.66027,Pedestrian,Serious,Dark - unlit,Clear,Dry,1,2,Yes,Poor street lighting
+CR-00246,2025-04-24,16:38,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91891,18.41914,Pedestrian,Fatal,Daylight,Clear,Dry,1,2,Yes,Excessive speed
+CR-00247,2025-04-26,19:48,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97987,18.56346,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,1,Yes,Excessive speed
+CR-00248,2025-04-27,09:18,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96109,18.49932,Side-impact,Slight,Daylight,Clear,Dry,2,1,No,Ran red light
+CR-00249,2025-05-01,09:23,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91956,18.41785,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Following too closely
+CR-00250,2025-05-09,06:19,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04184,18.61781,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00251,2025-05-10,00:05,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93053,18.61964,Rear-end,Damage only,Dark - lit,Rain,Wet,2,0,No,Following too closely
+CR-00252,2025-05-16,07:38,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04224,18.61906,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Excessive speed
+CR-00253,2025-05-18,11:21,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04266,18.6174,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00254,2025-05-20,21:16,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92057,18.42252,Rear-end,Slight,Dark - lit,Rain,Wet,2,2,No,Distracted driving (phone)
+CR-00255,2025-05-21,11:56,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04083,18.61796,Single vehicle,Serious,Daylight,Clear,Dry,1,2,No,Excessive speed
+CR-00256,2025-05-24,22:04,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97899,18.56484,Side-impact,Serious,Dark - lit,Clear,Dry,2,3,No,Ran red light
+CR-00257,2025-05-27,13:06,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.9018,18.62866,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Poor street lighting
+CR-00258,2025-05-30,08:47,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04157,18.61878,Cyclist,Slight,Daylight,Clear,Dry,1,1,No,Driver failed to yield
+CR-00259,2025-06-03,13:47,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96124,18.49921,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Driving under the influence
+CR-00260,2025-06-04,01:13,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04242,18.61897,Side-impact,Slight,Dark - lit,Clear,Dry,2,1,No,Failed to yield at stop sign
+CR-00261,2025-06-10,00:10,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90033,18.62948,Side-impact,Damage only,Dark - unlit,Clear,Dry,2,0,No,Ran red light
+CR-00262,2025-06-11,16:53,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90149,18.62847,Side-impact,Serious,Daylight,Clear,Dry,2,3,No,Traffic signal outage
+CR-00263,2025-06-11,20:36,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92053,18.42308,Pedestrian,Slight,Dark - lit,Clear,Dry,1,1,Yes,Driver failed to yield
+CR-00264,2025-06-11,18:51,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97809,18.56319,Side-impact,Damage only,Dark - lit,Rain,Wet,2,0,No,Failed to yield at stop sign
+CR-00265,2025-06-16,06:23,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91918,18.41721,Rear-end,Serious,Daylight,Rain,Wet,2,2,No,Following too closely
+CR-00266,2025-06-17,13:35,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90149,18.62833,Pedestrian,Slight,Daylight,Rain,Wet,1,3,Yes,Pedestrian crossing against signal
+CR-00267,2025-06-18,00:26,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04102,18.6177,Side-impact,Damage only,Dark - unlit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00268,2025-06-19,23:45,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00352,18.4674,Cyclist,Damage only,Dark - lit,Rain,Wet,1,0,No,Unsafe overtaking
+CR-00269,2025-06-19,08:08,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00308,18.46714,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00270,2025-06-19,11:39,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97808,18.56511,Pedestrian,Serious,Daylight,Clear,Dry,1,2,Yes,Excessive speed
+CR-00271,2025-06-21,05:08,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02198,18.65926,Head-on,Damage only,Dark - unlit,Clear,Dry,2,0,No,Driving under the influence
+CR-00272,2025-06-21,07:05,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04545,18.68184,Head-on,Damage only,Daylight,Clear,Dry,2,0,No,Unsafe overtaking
+CR-00273,2025-06-24,17:00,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97819,18.56434,Single vehicle,Fatal,Daylight,Rain,Wet,1,3,No,Pothole / road surface defect
+CR-00274,2025-07-03,17:19,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91593,18.38796,Side-impact,Damage only,Daylight,Rain,Wet,2,0,No,Failed to yield at stop sign
+CR-00275,2025-07-06,15:15,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97807,18.5649,Pedestrian,Serious,Daylight,Rain,Wet,1,1,Yes,Excessive speed
+CR-00276,2025-07-07,14:58,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98322,18.46546,Rear-end,Slight,Daylight,Clear,Dry,2,1,No,Following too closely
+CR-00277,2025-07-10,19:37,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04112,18.61717,Pedestrian,Serious,Dark - lit,Clear,Dry,1,3,Yes,Poor street lighting
+CR-00278,2025-07-13,10:34,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96111,18.49961,Side-impact,Slight,Daylight,Rain,Wet,2,3,No,Ran red light
+CR-00279,2025-07-19,23:28,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90011,18.62922,Pedestrian,Fatal,Dark - unlit,Clear,Dry,1,3,Yes,Poor street lighting
+CR-00280,2025-07-19,11:49,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91544,18.38865,Side-impact,Serious,Daylight,Rain,Wet,2,1,No,Traffic signal outage
+CR-00281,2025-07-23,23:44,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04666,18.68124,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00282,2025-07-26,19:28,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04603,18.68006,Pedestrian,Slight,Dark - unlit,Rain,Wet,1,3,Yes,Excessive speed
+CR-00283,2025-07-30,12:23,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91861,18.41796,Single vehicle,Damage only,Daylight,Rain,Wet,1,0,No,Excessive speed
+CR-00284,2025-07-30,11:54,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98419,18.46605,Pedestrian,Fatal,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00285,2025-08-03,14:27,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88838,18.63475,Side-impact,Slight,Daylight,Clear,Dry,2,3,No,Traffic signal outage
+CR-00286,2025-08-03,07:08,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98233,18.4671,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00287,2025-08-04,21:45,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.0228,18.65968,Pedestrian,Slight,Dark - lit,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00288,2025-08-09,08:53,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.8897,18.63358,Side-impact,Slight,Daylight,Rain,Wet,2,2,No,Traffic signal outage
+CR-00289,2025-08-09,14:40,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92858,18.43945,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00290,2025-08-13,21:35,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98331,18.46649,Pedestrian,Slight,Dark - unlit,Rain,Wet,1,2,Yes,Pedestrian crossing against signal
+CR-00291,2025-08-18,11:09,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.9016,18.62866,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00292,2025-08-18,16:45,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97934,18.56497,Pedestrian,Fatal,Daylight,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00293,2025-08-20,11:57,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98405,18.46689,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00294,2025-08-20,02:54,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04713,18.68136,Rear-end,Damage only,Dark - lit,Rain,Wet,2,0,No,Following too closely
+CR-00295,2025-08-22,13:58,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88886,18.63464,Side-impact,Slight,Daylight,Rain,Wet,2,3,No,Failed to yield at stop sign
+CR-00296,2025-08-23,06:23,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97789,18.56325,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Excessive speed
+CR-00297,2025-08-25,14:57,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97818,18.56312,Pedestrian,Serious,Daylight,Rain,Wet,1,1,Yes,Pedestrian crossing against signal
+CR-00298,2025-08-28,15:26,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04498,18.68118,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00299,2025-08-31,13:42,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92785,18.43894,Rear-end,Serious,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00300,2025-09-01,11:18,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96237,18.49985,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Driving under the influence
+CR-00301,2025-09-03,07:00,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92184,18.4243,Pedestrian,Serious,Daylight,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00302,2025-09-08,23:00,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91896,18.41748,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Ran red light
+CR-00303,2025-09-09,22:58,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92239,18.42248,Cyclist,Damage only,Dark - lit,Rain,Wet,1,0,No,Driver failed to yield
+CR-00304,2025-09-11,16:25,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90155,18.62982,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Following too closely
+CR-00305,2025-09-11,20:44,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04117,18.61774,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00306,2025-09-11,05:17,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97869,18.56338,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00307,2025-09-13,16:19,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90015,18.63066,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Following too closely
+CR-00308,2025-09-15,01:04,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.9307,18.62097,Side-impact,Damage only,Dark - unlit,Clear,Dry,2,0,No,Traffic signal outage
+CR-00309,2025-09-16,17:43,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02234,18.65962,Rear-end,Serious,Daylight,Clear,Dry,2,2,No,Distracted driving (phone)
+CR-00310,2025-09-18,15:03,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98234,18.46561,Side-impact,Slight,Daylight,Clear,Dry,2,1,No,Traffic signal outage
+CR-00311,2025-09-18,23:40,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97991,18.56388,Side-impact,Damage only,Dark - unlit,Clear,Dry,2,0,No,Ran red light
+CR-00312,2025-09-24,14:00,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.93009,18.43977,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00313,2025-09-30,20:28,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04205,18.61732,Pedestrian,Serious,Dark - unlit,Rain,Wet,1,2,Yes,Pedestrian crossing against signal
+CR-00314,2025-10-13,17:27,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.045,18.68005,Rear-end,Slight,Daylight,Clear,Dry,2,1,No,Distracted driving (phone)
+CR-00315,2025-10-16,14:25,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96164,18.50103,Single vehicle,Slight,Daylight,Clear,Dry,1,1,No,Excessive speed
+CR-00316,2025-10-18,11:29,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.9162,18.38844,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Pedestrian crossing against signal
+CR-00317,2025-10-19,06:48,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93087,18.62089,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00318,2025-10-21,23:50,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02361,18.66056,Rear-end,Damage only,Dark - lit,Rain,Wet,2,0,No,Sudden braking for pothole
+CR-00319,2025-10-23,02:36,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02219,18.65898,Pedestrian,Slight,Dark - lit,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00320,2025-10-27,08:19,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93059,18.62057,Side-impact,Slight,Daylight,Clear,Dry,2,3,No,Traffic signal outage
+CR-00321,2025-10-27,19:45,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02203,18.66045,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00322,2025-10-28,14:11,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92158,18.42255,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00323,2025-11-11,17:26,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02328,18.65916,Head-on,Slight,Daylight,Clear,Dry,2,2,No,Driving under the influence
+CR-00324,2025-11-12,06:37,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04523,18.6817,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00325,2025-11-20,23:31,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02275,18.66108,Head-on,Damage only,Dark - lit,Rain,Wet,2,0,No,Driving under the influence
+CR-00326,2025-11-27,14:22,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.9631,18.50042,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00327,2025-11-30,18:11,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04573,18.68127,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Following too closely
+CR-00328,2025-12-02,20:03,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91968,18.41765,Side-impact,Slight,Dark - lit,Clear,Dry,2,3,No,Ran red light
+CR-00329,2025-12-05,22:20,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04138,18.61834,Rear-end,Fatal,Dark - lit,Clear,Dry,2,2,No,Distracted driving (phone)
+CR-00330,2025-12-08,16:40,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02232,18.66089,Single vehicle,Damage only,Daylight,Clear,Dry,1,0,No,Driving under the influence
+CR-00331,2025-12-09,22:05,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96123,18.49959,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00332,2025-12-10,01:56,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02404,18.65975,Rear-end,Damage only,Dark - unlit,Clear,Dry,2,0,No,Following too closely
+CR-00333,2025-12-29,19:31,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02195,18.66034,Pedestrian,Fatal,Dark - unlit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00334,2025-12-30,00:30,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02245,18.65922,Pedestrian,Serious,Dark - lit,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00335,2026-01-01,05:22,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.89951,18.62918,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Following too closely
+CR-00336,2026-01-01,00:29,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91851,18.41872,Rear-end,Slight,Dark - unlit,Clear,Dry,2,3,No,Sudden braking for pothole
+CR-00337,2026-01-01,00:00,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91851,18.41827,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Ran red light
+CR-00338,2026-01-07,11:35,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93074,18.61902,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00339,2026-01-13,16:37,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91835,18.41925,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00340,2026-01-13,17:43,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00352,18.46783,Cyclist,Damage only,Daylight,Clear,Dry,1,0,No,Driver failed to yield
+CR-00341,2026-01-13,08:03,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04108,18.6173,Rear-end,Slight,Daylight,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00342,2026-01-15,12:51,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96085,18.50114,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00343,2026-01-16,02:41,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96227,18.50012,Side-impact,Slight,Dark - lit,Clear,Dry,2,2,No,Traffic signal outage
+CR-00344,2026-01-20,05:58,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91885,18.41852,Rear-end,Slight,Dark - unlit,Clear,Dry,2,3,No,Sudden braking for pothole
+CR-00345,2026-01-20,01:32,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98406,18.46695,Pedestrian,Fatal,Dark - lit,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00346,2026-01-21,22:48,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04643,18.68078,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,2,Yes,Excessive speed
+CR-00347,2026-01-25,13:32,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88818,18.63388,Side-impact,Fatal,Daylight,Rain,Wet,2,2,No,Traffic signal outage
+CR-00348,2026-01-25,02:08,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.98018,18.56505,Rear-end,Damage only,Dark - unlit,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00349,2026-01-27,05:27,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04102,18.61701,Pedestrian,Slight,Dark - lit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00350,2026-01-29,14:34,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04102,18.61888,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00351,2026-02-04,07:09,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98344,18.46487,Cyclist,Slight,Daylight,Clear,Dry,1,2,No,Driver failed to yield
+CR-00352,2026-02-08,01:16,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.92901,18.62076,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Ran red light
+CR-00353,2026-02-12,18:40,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97795,18.56512,Rear-end,Fatal,Dark - unlit,Clear,Dry,2,3,No,Sudden braking for pothole
+CR-00354,2026-02-16,02:17,Central,Sea Point,Main Road & Glengariff Road,HS-06,Main Road,-33.91501,18.38845,Rear-end,Damage only,Dark - lit,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00355,2026-02-16,21:09,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97992,18.564,Single vehicle,Damage only,Dark - lit,Clear,Dry,1,0,No,Driving under the influence
+CR-00356,2026-02-18,01:24,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02364,18.66031,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,3,Yes,Excessive speed
+CR-00357,2026-02-18,14:02,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04591,18.68036,Pedestrian,Slight,Daylight,Clear,Dry,1,2,Yes,Driver failed to yield
+CR-00358,2026-02-24,13:04,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91969,18.41813,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Ran red light
+CR-00359,2026-02-26,11:26,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.9306,18.6203,Rear-end,Slight,Daylight,Rain,Wet,2,2,No,Following too closely
+CR-00360,2026-02-27,06:14,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91798,18.41929,Rear-end,Serious,Daylight,Clear,Dry,2,1,No,Distracted driving (phone)
+CR-00361,2026-03-03,23:04,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02197,18.66007,Single vehicle,Slight,Dark - lit,Clear,Dry,1,3,No,Excessive speed
+CR-00362,2026-03-04,01:47,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04602,18.68218,Rear-end,Slight,Dark - unlit,Clear,Dry,2,3,No,Following too closely
+CR-00363,2026-03-07,20:56,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.0455,18.68025,Single vehicle,Slight,Dark - lit,Clear,Dry,1,3,No,Excessive speed
+CR-00364,2026-03-10,07:16,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02397,18.66091,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Driver failed to yield
+CR-00365,2026-03-18,19:55,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.0448,18.68203,Head-on,Slight,Dark - lit,Clear,Dry,2,2,No,Unsafe overtaking
+CR-00366,2026-03-19,12:55,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96262,18.49922,Rear-end,Slight,Daylight,Rain,Wet,2,2,No,Distracted driving (phone)
+CR-00367,2026-03-29,02:04,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.8887,18.63401,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00368,2026-03-30,13:25,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.92897,18.62103,Side-impact,Damage only,Daylight,Rain,Wet,2,0,No,Failed to yield at stop sign
+CR-00369,2026-04-04,15:47,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02301,18.65942,Rear-end,Serious,Daylight,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00370,2026-04-05,11:26,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98202,18.46594,Single vehicle,Slight,Daylight,Clear,Dry,1,3,No,Driving under the influence
+CR-00371,2026-04-11,14:19,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.92936,18.61927,Side-impact,Serious,Daylight,Clear,Dry,2,2,No,Ran red light
+CR-00372,2026-04-11,07:57,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.93066,18.6198,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Failed to yield at stop sign
+CR-00373,2026-04-12,21:35,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90113,18.62863,Side-impact,Slight,Dark - unlit,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00374,2026-04-15,17:31,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.88955,18.63318,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00375,2026-04-16,11:23,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.9309,18.62001,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00376,2026-04-16,06:44,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97786,18.56294,Head-on,Damage only,Daylight,Clear,Dry,2,0,No,Unsafe overtaking
+CR-00377,2026-04-19,11:22,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97812,18.56451,Side-impact,Slight,Daylight,Clear,Dry,2,1,No,Failed to yield at stop sign
+CR-00378,2026-04-22,16:16,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02254,18.66055,Side-impact,Fatal,Daylight,Clear,Dry,2,1,No,Ran red light
+CR-00379,2026-05-04,21:07,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.0455,18.68157,Rear-end,Fatal,Dark - lit,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00380,2026-05-05,14:44,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90054,18.6304,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00381,2026-05-17,06:41,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98237,18.46596,Single vehicle,Slight,Daylight,Clear,Dry,1,1,No,Excessive speed
+CR-00382,2026-05-19,16:28,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97956,18.56351,Head-on,Slight,Daylight,Clear,Dry,2,2,No,Driving under the influence
+CR-00383,2026-05-22,18:55,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91859,18.41869,Side-impact,Slight,Dark - lit,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00384,2026-05-26,21:09,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91941,18.41884,Pedestrian,Fatal,Dark - unlit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00385,2026-06-06,23:37,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91928,18.41742,Side-impact,Slight,Dark - lit,Rain,Wet,2,2,No,Failed to yield at stop sign
+CR-00386,2026-06-06,12:18,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92126,18.42472,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00387,2026-06-07,08:55,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90074,18.62874,Side-impact,Slight,Daylight,Clear,Dry,2,1,No,Ran red light
+CR-00388,2026-06-08,21:22,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02416,18.66068,Side-impact,Damage only,Dark - unlit,Rain,Wet,2,0,No,Ran red light
+CR-00389,2026-06-21,10:01,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04116,18.61733,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00390,2026-06-22,01:15,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04495,18.68078,Pedestrian,Serious,Dark - unlit,Clear,Dry,1,3,Yes,Pedestrian crossing against signal
+CR-00391,2026-06-25,11:32,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90101,18.62884,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Following too closely
+CR-00392,2026-06-30,09:56,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02397,18.65905,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Following too closely
+CR-00393,2026-07-02,06:37,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90166,18.62952,Cyclist,Serious,Daylight,Rain,Wet,1,1,No,Driver failed to yield
+CR-00394,2026-07-03,16:53,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92153,18.42242,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Excessive speed
+CR-00395,2026-07-05,15:03,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04561,18.68128,Pedestrian,Slight,Daylight,Rain,Wet,1,2,Yes,Excessive speed
+CR-00396,2026-07-07,01:43,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97869,18.5637,Pedestrian,Serious,Dark - lit,Rain,Wet,1,1,Yes,Excessive speed
+CR-00397,2026-07-12,22:30,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02355,18.66094,Pedestrian,Slight,Dark - lit,Rain,Wet,1,1,Yes,Poor street lighting
+CR-00398,2026-07-17,02:19,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.89945,18.63037,Rear-end,Slight,Dark - lit,Clear,Dry,2,3,No,Distracted driving (phone)
+CR-00399,2026-07-20,20:15,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02356,18.65985,Rear-end,Slight,Dark - unlit,Rain,Wet,2,3,No,Sudden braking for pothole
+CR-00400,2026-07-21,13:22,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02325,18.65992,Pedestrian,Serious,Daylight,Rain,Wet,1,1,Yes,Poor street lighting
+CR-00401,2026-07-22,02:22,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02219,18.6611,Pedestrian,Serious,Dark - unlit,Rain,Wet,1,1,Yes,Poor street lighting
+CR-00402,2026-07-24,02:15,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00389,18.4674,Rear-end,Slight,Dark - unlit,Clear,Dry,2,1,No,Following too closely
+CR-00403,2026-07-25,11:02,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.89948,18.62904,Pedestrian,Slight,Daylight,Rain,Wet,1,2,Yes,Driver failed to yield
+CR-00404,2026-08-06,18:39,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90149,18.62956,Pedestrian,Serious,Dark - lit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00405,2026-08-07,14:24,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92972,18.4396,Rear-end,Serious,Daylight,Clear,Dry,2,1,No,Distracted driving (phone)
+CR-00406,2026-08-09,22:42,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04229,18.61715,Rear-end,Slight,Dark - lit,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00407,2026-08-11,11:41,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96243,18.50069,Side-impact,Slight,Daylight,Clear,Dry,2,2,No,Traffic signal outage
+CR-00408,2026-08-15,19:59,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92806,18.43999,Rear-end,Slight,Dark - lit,Clear,Dry,2,1,No,Sudden braking for pothole
+CR-00409,2026-08-15,11:00,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00408,18.46915,Pedestrian,Serious,Daylight,Rain,Wet,1,2,Yes,Pedestrian crossing against signal
+CR-00410,2026-08-19,10:47,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02288,18.66069,Pedestrian,Slight,Daylight,Clear,Dry,1,3,Yes,Excessive speed
+CR-00411,2026-08-23,19:22,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92257,18.42463,Rear-end,Slight,Dark - lit,Clear,Dry,2,3,No,Following too closely
+CR-00412,2026-08-23,11:33,Southern,Athlone,Klipfontein Road & Jan Smuts Drive,HS-09,Klipfontein Road,-33.96285,18.50043,Side-impact,Damage only,Daylight,Rain,Wet,2,0,No,Traffic signal outage
+CR-00413,2026-08-24,19:04,Northern,Bellville,Voortrekker Road & Durban Road,HS-01,Voortrekker Road,-33.90074,18.62977,Pedestrian,Slight,Dark - unlit,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00414,2026-08-25,08:55,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92948,18.43881,Side-impact,Damage only,Daylight,Clear,Dry,2,0,No,Traffic signal outage
+CR-00415,2026-08-25,08:26,Cape Flats,Khayelitsha,Japhta K Masemola Road & Spine Road,HS-14,Japhta K Masemola Road,-34.04684,18.68013,Rear-end,Slight,Daylight,Rain,Wet,2,3,No,Following too closely
+CR-00416,2026-09-02,21:40,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97843,18.56435,Pedestrian,Fatal,Dark - lit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00417,2026-09-03,13:17,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.93005,18.44014,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00418,2026-09-04,05:17,Southern,Claremont,Main Road & Lansdowne Road,HS-08,Main Road,-33.98318,18.46707,Pedestrian,Slight,Dark - lit,Clear,Dry,1,3,Yes,Driver failed to yield
+CR-00419,2026-09-07,14:51,Northern,Bellville,Durban Road & Old Paarl Road,HS-02,Durban Road,-33.89046,18.63445,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00420,2026-09-08,01:11,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92799,18.43868,Side-impact,Fatal,Dark - lit,Clear,Dry,2,3,No,Failed to yield at stop sign
+CR-00421,2026-09-09,11:01,Northern,Bellville South,Robert Sobukwe Road & Modderdam Road,HS-03,Robert Sobukwe Road,-33.9294,18.61979,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00422,2026-09-12,21:05,Cape Flats,Khayelitsha,Spine Road & Lansdowne Road,HS-12,Spine Road,-34.02216,18.65932,Side-impact,Damage only,Dark - lit,Clear,Dry,2,0,No,Traffic signal outage
+CR-00423,2026-09-14,09:40,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97856,18.56499,Pedestrian,Serious,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00424,2026-09-15,01:58,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04179,18.61699,Side-impact,Slight,Dark - lit,Clear,Dry,2,2,No,Failed to yield at stop sign
+CR-00425,2026-09-21,12:00,Southern,Wynberg,Main Road & Church Street,HS-10,Main Road,-34.00493,18.46863,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Sudden braking for pothole
+CR-00426,2026-09-21,07:08,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04319,18.61745,Cyclist,Serious,Daylight,Clear,Dry,1,3,No,Driver failed to yield
+CR-00427,2026-09-25,21:49,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97978,18.56475,Pedestrian,Serious,Dark - unlit,Rain,Wet,1,2,Yes,Excessive speed
+CR-00428,2026-09-27,21:16,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91762,18.41832,Side-impact,Serious,Dark - unlit,Rain,Wet,2,1,No,Failed to yield at stop sign
+CR-00429,2026-09-27,02:46,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92162,18.4228,Pedestrian,Slight,Dark - lit,Clear,Dry,1,1,Yes,Pedestrian crossing against signal
+CR-00430,2026-09-30,07:16,Central,Woodstock,Sir Lowry Road & Searle Street,HS-07,Sir Lowry Road,-33.92808,18.43905,Rear-end,Slight,Daylight,Clear,Dry,2,2,No,Sudden braking for pothole
+CR-00431,2026-10-02,05:15,Cape Flats,Mitchells Plain,AZ Berman Drive & Morgenster Road,HS-11,AZ Berman Drive,-34.04184,18.61775,Rear-end,Slight,Dark - lit,Clear,Dry,2,1,No,Following too closely
+CR-00432,2026-10-07,05:32,Central,Cape Town City Centre,Buitengracht Street & Strand Street,HS-04,Buitengracht Street,-33.91792,18.41818,Side-impact,Damage only,Dark - unlit,Rain,Wet,2,0,No,Traffic signal outage
+CR-00433,2026-10-08,12:43,Central,Cape Town City Centre,Adderley Street & Strand Street,HS-05,Adderley Street,-33.92236,18.4227,Rear-end,Damage only,Daylight,Clear,Dry,2,0,No,Distracted driving (phone)
+CR-00434,2026-10-10,10:24,Cape Flats,Gugulethu,NY1 & Klipfontein Road,HS-13,NY1,-33.97897,18.56421,Pedestrian,Slight,Daylight,Clear,Dry,1,1,Yes,Pedestrian crossing against signal

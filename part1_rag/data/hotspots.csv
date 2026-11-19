@@ -1,0 +1,15 @@
+hotspot_id,intersection,road_a,road_b,area,suburb,lat,lon,crashes_3yr,fatal,serious,pedestrian_crashes,night_share_pct,top_factor,severity_index,risk_rank,recommended_intervention
+HS-12,Spine Road & Lansdowne Road,Spine Road,Lansdowne Road,Cape Flats,Khayelitsha,-34.023,18.66,53,5,17,30,62,Pedestrian crossing against signal,74.5,1,Street lighting upgrade and pedestrian bridge feasibility
+HS-13,NY1 & Klipfontein Road,NY1,Klipfontein Road,Cape Flats,Gugulethu,-33.979,18.564,39,6,11,19,46,Excessive speed,63.0,2,Street lighting upgrade and pedestrian bridge feasibility
+HS-11,AZ Berman Drive & Morgenster Road,AZ Berman Drive,Morgenster Road,Cape Flats,Mitchells Plain,-34.042,18.618,49,1,14,19,29,Pedestrian crossing against signal,50.0,3,Raised pedestrian crossing and signal phase review
+HS-01,Voortrekker Road & Durban Road,Voortrekker Road,Durban Road,Northern,Bellville,-33.9006,18.6295,44,3,9,16,34,Pedestrian crossing against signal,49.0,4,Raised pedestrian crossing and signal phase review
+HS-14,Japhta K Masemola Road & Spine Road,Japhta K Masemola Road,Spine Road,Cape Flats,Khayelitsha,-34.046,18.681,36,4,7,16,58,Driver failed to yield,46.5,5,Street lighting upgrade and pedestrian bridge feasibility
+HS-04,Buitengracht Street & Strand Street,Buitengracht Street,Strand Street,Central,Cape Town City Centre,-33.9188,18.4183,29,3,5,5,38,Failed to yield at stop sign,35.5,6,Signal timing review and red-light camera
+HS-08,Main Road & Lansdowne Road,Main Road,Lansdowne Road,Southern,Claremont,-33.983,18.466,26,3,6,14,31,Pedestrian crossing against signal,35.5,7,Raised pedestrian crossing and signal phase review
+HS-05,Adderley Street & Strand Street,Adderley Street,Strand Street,Central,Cape Town City Centre,-33.9216,18.4236,28,1,5,14,43,Pedestrian crossing against signal,26.0,8,Raised pedestrian crossing and signal phase review
+HS-09,Klipfontein Road & Jan Smuts Drive,Klipfontein Road,Jan Smuts Drive,Southern,Athlone,-33.962,18.5,32,1,3,4,31,Failed to yield at stop sign,25.0,9,Signal timing review and red-light camera
+HS-06,Main Road & Glengariff Road,Main Road,Glengariff Road,Central,Sea Point,-33.9155,18.388,16,1,7,4,25,Failed to yield at stop sign,23.0,10,Raised pedestrian crossing and signal phase review
+HS-02,Durban Road & Old Paarl Road,Durban Road,Old Paarl Road,Northern,Bellville,-33.8893,18.634,17,2,3,0,24,Failed to yield at stop sign,22.0,11,Signal timing review and red-light camera
+HS-03,Robert Sobukwe Road & Modderdam Road,Robert Sobukwe Road,Modderdam Road,Northern,Bellville South,-33.93,18.62,26,1,2,1,23,Ran red light,20.5,12,Signal timing review and red-light camera
+HS-10,Main Road & Church Street,Main Road,Church Street,Southern,Wynberg,-34.004,18.468,20,0,6,11,25,Driver failed to yield,19.0,13,Raised pedestrian crossing and signal phase review
+HS-07,Sir Lowry Road & Searle Street,Sir Lowry Road,Searle Street,Central,Woodstock,-33.929,18.439,19,1,3,0,21,Sudden braking for pothole,18.5,14,Signal timing review and red-light camera

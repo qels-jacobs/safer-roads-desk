@@ -1,0 +1,89 @@
+{
+  "document": "Safer Roads Desk - Hazard Response Rules v1.0 (synthetic)",
+  "risk_score": {
+    "formula": "severity x speed_factor x pedestrian_factor x hotspot_factor x report_factor",
+    "speed_factor": "speed_limit_kmh / 60",
+    "pedestrian_factor": {
+      "High": 1.5,
+      "Medium": 1.2,
+      "Low": 1.0
+    },
+    "hotspot_factor": "1 + (fatal x 0.2 + serious x 0.05) at the matched hotspot, capped at 3.0; 1.0 if no hotspot",
+    "report_factor": "1 + 0.1 x (number of independent reports - 1), capped at 1.5",
+    "priority_bands": {
+      "P1 - Urgent": ">= 12 (inspect within 4 hours)",
+      "P2 - High": "6 to < 12 (within the hazard deadline, max 48 h)",
+      "P3 - Routine": "< 6 (within the hazard deadline)"
+    },
+    "overrides": [
+      "traffic_signal_outage at any hotspot is always P1",
+      "Hazards on national roads (N1, N2) are referred to SANRAL, not scheduled"
+    ]
+  },
+  "hazard_types": [
+    {
+      "hazard_code": "traffic_signal_outage",
+      "description": "Traffic signal (robot) not working or flashing",
+      "severity": 5,
+      "repair_deadline_hours": 4,
+      "department": "Traffic Signals Unit",
+      "inspection_required": true
+    },
+    {
+      "hazard_code": "pothole",
+      "description": "Pothole or road surface failure",
+      "severity": 3,
+      "repair_deadline_hours": 72,
+      "department": "Roads Maintenance",
+      "inspection_required": true
+    },
+    {
+      "hazard_code": "missing_stop_sign",
+      "description": "Stop or yield sign missing, damaged or knocked over",
+      "severity": 4,
+      "repair_deadline_hours": 24,
+      "department": "Road Signs & Markings",
+      "inspection_required": true
+    },
+    {
+      "hazard_code": "faded_road_markings",
+      "description": "Faded pedestrian crossing or road markings",
+      "severity": 3,
+      "repair_deadline_hours": 168,
+      "department": "Road Signs & Markings",
+      "inspection_required": true
+    },
+    {
+      "hazard_code": "streetlight_out",
+      "description": "Streetlight not working",
+      "severity": 2,
+      "repair_deadline_hours": 120,
+      "department": "Public Lighting",
+      "inspection_required": false
+    },
+    {
+      "hazard_code": "blocked_stormwater_drain",
+      "description": "Blocked stormwater drain or road flooding",
+      "severity": 3,
+      "repair_deadline_hours": 48,
+      "department": "Stormwater",
+      "inspection_required": true
+    },
+    {
+      "hazard_code": "road_obstruction",
+      "description": "Debris, abandoned vehicle or obstruction in roadway",
+      "severity": 4,
+      "repair_deadline_hours": 6,
+      "department": "Roads Maintenance",
+      "inspection_required": true
+    },
+    {
+      "hazard_code": "damaged_guardrail",
+      "description": "Damaged guardrail or barrier",
+      "severity": 3,
+      "repair_deadline_hours": 72,
+      "department": "Roads Maintenance",
+      "inspection_required": true
+    }
+  ]
+}

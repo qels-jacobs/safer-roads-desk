@@ -1,0 +1,923 @@
+{
+  "name": "Safer Roads Desk \u00b7 Road Hazard Agent",
+  "nodes": [
+    {
+      "id": "9c4cfc16-1f1a-471b-b425-4d0c99c57554",
+      "name": "Run Agent (manual)",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        200
+      ],
+      "parameters": {}
+    },
+    {
+      "id": "a9b4dc68-d77c-4a36-ab99-058923bab497",
+      "name": "Every 15 min (enable for autonomy)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        420
+      ],
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 15
+            }
+          ]
+        }
+      },
+      "disabled": true
+    },
+    {
+      "id": "fb684288-64b1-4e7c-b8f8-1a789e668c0a",
+      "name": "Config",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        220,
+        300
+      ],
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "c908595e-109e-4894-96eb-9fb258247d26",
+              "name": "reference_base_url",
+              "value": "https://raw.githubusercontent.com/YOUR_GITHUB_USER/safer-roads-desk/main/part1_rag/data",
+              "type": "string"
+            },
+            {
+              "id": "f1095771-d0fd-46c6-8209-880972675ded",
+              "name": "gmail_query",
+              "value": "from:me to:me newer_than:7d -subject:\"[Safer Roads Desk]\"",
+              "type": "string"
+            },
+            {
+              "id": "07f373c8-c24f-473a-91b8-b4af8db96121",
+              "name": "report_to",
+              "value": "your.demo.account@gmail.com",
+              "type": "string"
+            },
+            {
+              "id": "945a6537-9407-4a67-9974-f448884c8738",
+              "name": "demo_mode",
+              "value": "true",
+              "type": "string"
+            },
+            {
+              "id": "e8d4a644-eff7-4948-87f3-d82a24353e86",
+              "name": "sheet_url",
+              "value": "PASTE_GOOGLE_SHEET_URL",
+              "type": "string"
+            },
+            {
+              "id": "c9327911-86e3-4f6a-8398-2d3139a39337",
+              "name": "command_centre_url",
+              "value": "https://YOUR-APP.streamlit.app/command_centre",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "be4bff88-febb-40b9-be92-ae755164c905",
+      "name": "Reference Files",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// \"Reference Files\": which reference datasets to download (same files the Part 1 RAG app uses).\nconst base = $('Config').first().json.reference_base_url.replace(/\\/$/, '');\nreturn [\n  { name: 'road_register', file: 'road_register.csv' },\n  { name: 'hotspots', file: 'hotspots.csv' },\n  { name: 'hazard_rules', file: 'hazard_response_rules.json' },\n  { name: 'inspectors', file: 'inspectors.csv' },\n].map(f => ({ json: { ...f, url: `${base}/${f.file}` } }));\n"
+      }
+    },
+    {
+      "id": "17ee1d77-ddbb-42fc-b5a9-6a98ee57b648",
+      "name": "Fetch Reference Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        300
+      ],
+      "parameters": {
+        "url": "={{ $json.url }}",
+        "options": {
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "data"
+            }
+          }
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3
+    },
+    {
+      "id": "548439df-cdc1-459f-a0af-eaeb34467508",
+      "name": "Read Existing Cases",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        880,
+        300
+      ],
+      "parameters": {
+        "operation": "read",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Config').first().json.sheet_url }}",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "cases",
+          "mode": "name"
+        },
+        "options": {}
+      },
+      "executeOnce": true,
+      "alwaysOutputData": true,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "9b200db9-d32a-48fd-bc8e-92117cea88e0",
+      "name": "Get Hazard Emails",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1100,
+        300
+      ],
+      "parameters": {
+        "operation": "getAll",
+        "returnAll": false,
+        "limit": 50,
+        "simple": false,
+        "filters": {
+          "q": "={{ $('Config').first().json.gmail_query }}"
+        },
+        "options": {}
+      },
+      "executeOnce": true
+    },
+    {
+      "id": "66e29f90-283d-423b-b44b-189e08355cdd",
+      "name": "Prepare Emails",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1320,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// \"Prepare Emails\": one clean item per complaint email for the LLM.\nreturn $('Get Hazard Emails').all().map(i => {\n  const m = i.json;\n  const body = (m.text || m.textPlain || m.snippet || '').replace(/\\r/g, '');\n  const clean = body.split(/\\n(?:On .+wrote:|Op .+geskryf:|-{2,} ?Original Message)/)[0].trim().slice(0, 6000);\n  return { json: {\n    email_id: m.id, subject: m.subject || '', from: m.from?.value?.[0]?.address || '',\n    received: m.date ? new Date(m.date).toISOString() : new Date().toISOString(), body: clean } };\n});\n"
+      }
+    },
+    {
+      "id": "c60703a3-2900-4a24-a016-8c33af8c4ea1",
+      "name": "Extract Hazard (Claude)",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        1540,
+        300
+      ],
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are the intake officer for a Cape Town municipal road-hazard desk. Read ONE resident email and return ONLY JSON:\n{\"is_road_report\": true,\n \"reason\": \"only if not a road report: why\",\n \"language\": \"English | Afrikaans | isiXhosa | isiZulu | other\",\n \"hazard_code\": \"one of: traffic_signal_outage | pothole | missing_stop_sign | faded_road_markings | streetlight_out | blocked_stormwater_drain | road_obstruction | damaged_guardrail\",\n \"hazard_summary_en\": \"one short English sentence describing the problem\",\n \"location\": {\"road\": \"\", \"cross_street\": \"\", \"house_number\": \"\", \"landmark\": \"\", \"suburb\": \"\"},\n \"resident\": {\"name\": \"\", \"email\": \"\", \"phone\": \"\"},\n \"danger_signals\": [\"short phrases showing danger, e.g. near collision, school children\"]}\n\nRules:\n- Copy road names, suburbs, house numbers, emails and phone numbers EXACTLY as written in the email (keep Afrikaans\n  forms like \"Voortrekkerweg\"; keep abbreviations like \"Rd\"). Do NOT translate, correct, complete or guess them.\n  Our verification code normalises and checks them. Use \"\" when something is not stated.\n- \"Robot\" means traffic signal in South Africa.\n- Use \"cross_street\" only when the email names an intersection or corner.\n- is_road_report = false for anything that is not a physical road/traffic hazard (billing, general queries, spam).\n\nEmail subject: {{ $json.subject }}\nEmail body:\n{{ $json.body }}"
+      },
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "id": "1474753f-60ec-4b97-8fde-1d5290178033",
+      "name": "Parse, Ground & Normalise",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1760,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// \"Parse, Ground & Normalise\" (Run Once for All Items)\n// Parses the LLM extraction, checks every extracted value against the source email (grounding),\n// normalises contacts, and maps road names (incl. Afrikaans/abbreviations) onto the road register.\nconst emails = $('Prepare Emails').all().map(i => i.json);\nconst ref = Object.fromEntries($('Fetch Reference Data').all().map((r, i) => [$('Reference Files').all()[i].json.name, r.json.data]));\n\nfunction parseCsv(text) {\n  const rows = []; let row = [], cur = '', q = false;\n  for (let i = 0; i < text.length; i++) {\n    const c = text[i];\n    if (q) { if (c === '\"' && text[i + 1] === '\"') { cur += '\"'; i++; } else if (c === '\"') q = false; else cur += c; }\n    else if (c === '\"') q = true; else if (c === ',') { row.push(cur); cur = ''; }\n    else if (c === '\\n' || c === '\\r') { if (c === '\\r' && text[i + 1] === '\\n') i++; row.push(cur); rows.push(row); row = []; cur = ''; }\n    else cur += c;\n  }\n  if (cur || row.length) { row.push(cur); rows.push(row); }\n  const [head, ...body] = rows.filter(r => r.some(x => x.trim()));\n  return body.map(r => Object.fromEntries(head.map((h, i) => [h.trim(), (r[i] || '').trim()])));\n}\nconst roads = parseCsv(ref.road_register);\nconst rules = JSON.parse(ref.hazard_rules).hazard_types;\nconst CODES = new Set(rules.map(r => r.hazard_code));\n\n// \"Voortrekkerweg\" -> \"voortrekker road\", \"Durban Rd\" -> \"durban road\", \"Jan Smutsrylaan\" -> \"jan smuts drive\"\nfunction canonRoad(s) {\n  if (!s) return '';\n  let x = String(s).toLowerCase().replace(/[.,]/g, ' ').replace(/\\s+/g, ' ').trim();\n  x = x.replace(/(\\S)(weg|straat|rylaan|laan)$/, '$1 $2');\n  const SUF = { rd: 'road', road: 'road', weg: 'road', st: 'street', str: 'street', street: 'street', straat: 'street',\n                dr: 'drive', drive: 'drive', rylaan: 'drive', ave: 'avenue', avenue: 'avenue', laan: 'avenue' };\n  const parts = x.split(' ');\n  const last = parts[parts.length - 1];\n  if (SUF[last]) parts[parts.length - 1] = SUF[last];\n  return parts.join(' ').replace(/^the /, '');\n}\nconst regNames = [...new Set(roads.map(r => r.road_name))];\nfunction matchRegister(name) {\n  const c = canonRoad(name);\n  if (!c) return null;\n  const exact = regNames.find(r => r.toLowerCase() === c);\n  if (exact) return exact;\n  const stem = c.replace(/ (road|street|drive|avenue)$/, '');\n  return regNames.find(r => r.toLowerCase().replace(/ (road|street|drive|avenue)$/, '') === stem) || null;\n}\nconst titleCase = s => s.replace(/\\b([a-z])/g, m => m.toUpperCase());\nconst digits = s => String(s || '').replace(/\\D/g, '');\nfunction normPhone(raw, log) {\n  if (!raw) return '';\n  let d = String(raw).replace(/\\(0\\)/g, '').replace(/\\D/g, '');\n  if (d.startsWith('0') && d.length === 10) d = '27' + d.slice(1);\n  if (d.startsWith('270') && d.length === 12) d = '27' + d.slice(3);\n  if (/^27\\d{9}$/.test(d)) { if ('+' + d !== raw) log.push(`phone \"${raw}\" -> +${d}`); return '+' + d; }\n  log.push(`phone \"${raw}\" is not a valid SA number - kept for review`); return String(raw);\n}\nconst strip = s => String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');\n\nconst out = [];\n$input.all().forEach((item, idx) => {\n  const src = emails[idx] || {};\n  const base = { email_id: src.email_id, subject: src.subject, received: src.received, log: [], flags: [] };\n  let x;\n  try { x = JSON.parse(String(item.json.text).replace(/```json|```/g, '').trim()); }\n  catch (e) { out.push({ json: { ...base, kind: 'parse_error', geocode_query: '', flags: ['LLM output was not valid JSON - needs manual review'] } }); return; }\n  if (!x.is_road_report) { out.push({ json: { ...base, kind: 'not_road_report', reason: x.reason || '', geocode_query: '' } }); return; }\n\n  const text = strip(`${src.subject} ${src.body}`);\n  const log = base.log, flags = base.flags;\n  // --- grounding: anything the model claims must be traceable to the email text\n  const loc = x.location || {}, res = x.resident || {};\n  for (const [k, v] of [['road', loc.road], ['cross_street', loc.cross_street], ['suburb', loc.suburb]]) {\n    if (!v) continue;\n    const stem = strip(v).replace(/\\b(road|rd|street|st|drive|dr|weg|straat|rylaan|avenue|ave)\\b/g, '').trim().split(' ')[0];\n    if (stem && !text.includes(stem)) { log.push(`LLM ${k} \"${v}\" not found in email - discarded`); loc[k] = ''; }\n  }\n  if (res.email && !text.includes(strip(res.email))) { log.push(`LLM email \"${res.email}\" not in source - discarded`); res.email = ''; }\n  if (res.phone && !digits(text).includes(digits(res.phone).slice(-7))) { log.push(`LLM phone \"${res.phone}\" not in source - discarded`); res.phone = ''; }\n  if (loc.house_number && !text.includes(String(loc.house_number))) { log.push(`house number \"${loc.house_number}\" not in source - discarded`); loc.house_number = ''; }\n  let code = x.hazard_code;\n  if (!CODES.has(code)) { flags.push(`unknown hazard type \"${code}\" - set to road_obstruction for review`); code = 'road_obstruction'; }\n\n  // --- road names onto the register\n  const road = matchRegister(loc.road), cross = matchRegister(loc.cross_street);\n  if (road && road.toLowerCase() !== strip(loc.road)) log.push(`road \"${loc.road}\" -> \"${road}\"`);\n  if (cross && cross.toLowerCase() !== strip(loc.cross_street)) log.push(`cross street \"${loc.cross_street}\" -> \"${cross}\"`);\n  const roadName = road || (loc.road ? titleCase(canonRoad(loc.road)) : '');\n  const crossName = cross || (loc.cross_street ? titleCase(canonRoad(loc.cross_street)) : '');\n  const suburb = loc.suburb ? titleCase(String(loc.suburb).toLowerCase().trim()) : '';\n  if (!roadName) flags.push('no usable street name in report');\n\n  const email = (res.email || '').trim().toLowerCase();\n  const geocode_query = roadName ? [loc.house_number, roadName].filter(Boolean).join(' ') + `, ${suburb ? suburb + ', ' : ''}Cape Town, South Africa` : '';\n  out.push({ json: { ...base, kind: 'report', language: x.language || 'English', hazard_code: code,\n    hazard_summary_en: x.hazard_summary_en || '', road: roadName, road_in_register: !!road, cross_street: crossName,\n    house_number: loc.house_number || '', landmark: loc.landmark || '', suburb_reported: suburb,\n    resident: { name: res.name ? titleCase(String(res.name).toLowerCase()) : '', email, phone: normPhone(res.phone, log) },\n    danger_signals: x.danger_signals || [], geocode_query } });\n});\nreturn out;\n"
+      }
+    },
+    {
+      "id": "1c486922-9dfc-473e-b117-94eae8da726c",
+      "name": "Geocode Address (OpenStreetMap)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1980,
+        300
+      ],
+      "parameters": {
+        "url": "={{ $json.geocode_query ? 'https://nominatim.openstreetmap.org/search' : 'https://nominatim.openstreetmap.org/status' }}",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "format",
+              "value": "jsonv2"
+            },
+            {
+              "name": "addressdetails",
+              "value": "1"
+            },
+            {
+              "name": "limit",
+              "value": "1"
+            },
+            {
+              "name": "countrycodes",
+              "value": "za"
+            },
+            {
+              "name": "q",
+              "value": "={{ $json.geocode_query || 'status' }}"
+            }
+          ]
+        },
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "User-Agent",
+              "value": "SaferRoadsDesk-demo/1.0 (interview demo)"
+            }
+          ]
+        },
+        "options": {
+          "batching": {
+            "batch": {
+              "batchSize": 1,
+              "batchInterval": 1100
+            }
+          },
+          "response": {
+            "response": {
+              "responseFormat": "text",
+              "outputPropertyName": "geo_raw"
+            }
+          }
+        }
+      },
+      "retryOnFail": true,
+      "maxTries": 3,
+      "onError": "continueRegularOutput"
+    },
+    {
+      "id": "afa7ec62-1122-4b5c-bf54-a5ce796d2e9f",
+      "name": "Verify, Dedupe & Score",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2200,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// \"Verify, Dedupe & Score\" (Run Once for All Items)\n// $input = Nominatim responses, index-aligned with \"Parse, Ground & Normalise\".\nconst items = $('Parse, Ground & Normalise').all().map(i => i.json);\nconst ref = Object.fromEntries($('Fetch Reference Data').all().map((r, i) => [$('Reference Files').all()[i].json.name, r.json.data]));\nfunction parseCsv(text) {\n  const rows = []; let row = [], cur = '', q = false;\n  for (let i = 0; i < text.length; i++) {\n    const c = text[i];\n    if (q) { if (c === '\"' && text[i + 1] === '\"') { cur += '\"'; i++; } else if (c === '\"') q = false; else cur += c; }\n    else if (c === '\"') q = true; else if (c === ',') { row.push(cur); cur = ''; }\n    else if (c === '\\n' || c === '\\r') { if (c === '\\r' && text[i + 1] === '\\n') i++; row.push(cur); rows.push(row); row = []; cur = ''; }\n    else cur += c;\n  }\n  if (cur || row.length) { row.push(cur); rows.push(row); }\n  const [head, ...body] = rows.filter(r => r.some(x => x.trim()));\n  return body.map(r => Object.fromEntries(head.map((h, i) => [h.trim(), (r[i] || '').trim()])));\n}\nconst roads = parseCsv(ref.road_register), hotspots = parseCsv(ref.hotspots), inspectors = parseCsv(ref.inspectors);\nconst rulesDoc = JSON.parse(ref.hazard_rules);\nconst rule = Object.fromEntries(rulesDoc.hazard_types.map(r => [r.hazard_code, r]));\nconst low = s => String(s || '').toLowerCase().trim();\nconst suburbArea = {};\ninspectors.forEach(ins => ins.suburbs.split(';').forEach(s => { suburbArea[low(s)] = ins.area; }));\nconst toRad = d => d * Math.PI / 180;\nconst distM = (a, b, c, d) => { const R = 6371000, x = toRad(c - a), y = toRad(d - b);\n  const h = Math.sin(x / 2) ** 2 + Math.cos(toRad(a)) * Math.cos(toRad(c)) * Math.sin(y / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };\nconst hash = s => { let h = 5381; for (const ch of s) h = ((h << 5) + h + ch.charCodeAt(0)) >>> 0; return h.toString(36).toUpperCase().slice(0, 6).padStart(6, '0'); };\n\nconst reports = [], other = [];\nitems.forEach((it, i) => {\n  if (it.kind !== 'report') { other.push(it); return; }\n  // ---- 1. map verification (OpenStreetMap / Nominatim)\n  let geo = null;\n  try { const g = JSON.parse($input.all()[i]?.json?.geo_raw || '[]'); geo = Array.isArray(g) && g.length ? g[0] : null; } catch (e) { geo = null; }\n  it.geo = { status: 'not_found' };\n  if (it.geocode_query && geo) {\n    const a = geo.address || {};\n    const osmRoad = a.road || a.pedestrian || '';\n    const osmSuburb = a.suburb || a.neighbourhood || a.quarter || a.city_district || a.town || '';\n    const roadOk = low(osmRoad).replace(/ (road|street|drive|avenue)$/, '') === low(it.road).replace(/ (road|street|drive|avenue)$/, '');\n    it.geo = { status: roadOk ? 'verified' : 'partial', lat: +geo.lat, lon: +geo.lon, osm_road: osmRoad, osm_suburb: osmSuburb,\n               precision: geo.addresstype || geo.type, display: geo.display_name };\n    if (!roadOk) it.flags.push(`map lookup returned \"${osmRoad || geo.display_name}\" not \"${it.road}\" - location needs checking`);\n    if (it.suburb_reported && osmSuburb && low(osmSuburb) !== low(it.suburb_reported) && !suburbArea[low(it.suburb_reported)])\n      it.flags.push(`resident said \"${it.suburb_reported}\", map says \"${osmSuburb}\"`);\n  } else if (it.geocode_query) it.flags.push('address could not be verified on the map');\n\n  // ---- 2. area, road segment, hotspot\n  const suburb = it.geo.osm_suburb || it.suburb_reported;\n  const segs = roads.filter(r => low(r.road_name) === low(it.road));\n  let seg = segs.find(r => r.suburbs.split(';').some(s => low(s) === low(suburb))) || (segs.length === 1 ? segs[0] : null);\n  let area = suburbArea[low(suburb)] || seg?.area || '';\n  if (!seg && segs.length > 1 && area) seg = segs.find(r => r.area === area);\n  const crossSeg = roads.find(r => low(r.road_name) === low(it.cross_street) && (!area || r.area === area));\n  const pair = [low(it.road), low(it.cross_street)].sort().join('|');\n  let hs = hotspots.find(h => [low(h.road_a), low(h.road_b)].sort().join('|') === pair && (!area || h.area === area));\n  let hsHow = hs ? 'intersection match' : '';\n  if (!hs && it.geo.lat) {\n    const near = hotspots.map(h => [h, distM(it.geo.lat, it.geo.lon, +h.lat, +h.lon)]).sort((a, b) => a[1] - b[1])[0];\n    if (near && near[1] <= 200 && [low(near[0].road_a), low(near[0].road_b)].includes(low(it.road))) { hs = near[0]; hsHow = `within ${Math.round(near[1])} m`; }\n  }\n  if (!area && hs) area = hs.area;\n  if (!seg && it.road) it.flags.push(`\"${it.road}\" not in road register - defaults used (local road, 60 km/h, medium pedestrian volume)`);\n  if (!area) it.flags.push('could not determine area / inspector');\n  Object.assign(it, { area, suburb, seg, crossSeg, hs, hsHow,\n    lat: hs ? +hs.lat : it.geo.lat, lon: hs ? +hs.lon : it.geo.lon });\n  reports.push(it);\n});\n\n// ---- 3. deduplicate: same hazard + same place (intersection pair, house number, or <=120 m)\nconst placeKey = r => r.cross_street ? [low(r.road), low(r.cross_street)].sort().join('&') : `${low(r.road)}#${r.house_number || low(r.landmark) || ''}`;\nconst clusters = [];\nfor (const r of reports.filter(r => r.road)) {\n  const c = clusters.find(c => c.hazard_code === r.hazard_code && (c.key === placeKey(r) ||\n    (c.lat && r.lat && distM(c.lat, c.lon, r.lat, r.lon) <= 120 && low(c.reports[0].road) === low(r.road))));\n  if (c) c.reports.push(r); else clusters.push({ hazard_code: r.hazard_code, key: placeKey(r), lat: r.lat, lon: r.lon, reports: [r] });\n}\nreports.filter(r => !r.road).forEach(r => clusters.push({ hazard_code: r.hazard_code, key: `nolocation#${r.email_id}`, reports: [r], incomplete: true }));\n\n// ---- 4. risk score (formula published in hazard_response_rules.json)\nconst PED = { High: 1.5, Medium: 1.2, Low: 1.0 };\nconst now = Date.now();\nconst cases = clusters.map(c => {\n  const r0 = c.reports.find(r => r.geo.status === 'verified') || c.reports.slice().sort((a, b) => a.received.localeCompare(b.received))[0];\n  const rl = rule[c.hazard_code], seg = r0.seg, cs = r0.crossSeg, hs = r0.hs;\n  const n = c.reports.length;\n  let flags = [...new Set(c.reports.flatMap(r => r.flags))];\n  if (c.reports.some(r => r.geo.status === 'verified')) flags = flags.filter(f => f !== 'address could not be verified on the map');\n  const log = c.reports.flatMap(r => r.log.map(l => `${r.email_id}: ${l}`));\n  if (n > 1) log.push(`merged ${n} reports of the same hazard (${c.reports.map(r => r.language).join(', ')})`);\n  const speed = Math.max(+(seg?.speed_limit_kmh || 60), +(cs?.speed_limit_kmh || 0));\n  const pedVol = [seg?.pedestrian_volume, cs?.pedestrian_volume].includes('High') ? 'High' : [seg?.pedestrian_volume, cs?.pedestrian_volume].includes('Medium') || !seg ? 'Medium' : 'Low';\n  const fs = Math.round(speed / 60 * 100) / 100, fp = PED[pedVol];\n  const fh = hs ? Math.min(3, Math.round((1 + 0.2 * +hs.fatal + 0.05 * +hs.serious) * 100) / 100) : 1;\n  const fr = Math.min(1.5, Math.round((1 + 0.1 * (n - 1)) * 100) / 100);\n  const score = Math.round(rl.severity * fs * fp * fh * fr * 10) / 10;\n  const breakdown = `${rl.severity} severity (${c.hazard_code}) \u00d7 ${fs} speed (${speed} km/h) \u00d7 ${fp} pedestrians (${pedVol}) \u00d7 ${fh} hotspot` +\n    (hs ? ` (${hs.hotspot_id}: ${hs.fatal} fatal, ${hs.serious} serious)` : ' (none)') + ` \u00d7 ${fr} reports (${n}) = ${score}`;\n  let band = score >= 12 ? 'P1' : score >= 6 ? 'P2' : 'P3';\n  const why = [];\n  if (c.hazard_code === 'traffic_signal_outage' && hs && band !== 'P1') { band = 'P1'; why.push('override: signal outage at a hotspot is always P1'); }\n  const national = [seg?.jurisdiction, cs?.jurisdiction].some(j => String(j || '').startsWith('National'));\n  if (national) { band = 'REFERRED'; why.push('national road - referred to SANRAL'); }\n  if (c.incomplete) { band = 'INCOMPLETE'; why.push('no location - resident asked for details'); }\n  const capH = band === 'P1' ? 4 : band === 'P2' ? Math.min(48, rl.repair_deadline_hours) : rl.repair_deadline_hours;\n  const first = Math.min(...c.reports.map(r => Date.parse(r.received) || now));\n  const label = { P1: 'P1 - Urgent', P2: 'P2 - High', P3: 'P3 - Routine', REFERRED: 'REFERRED - SANRAL', INCOMPLETE: 'INCOMPLETE - needs location' }[band];\n  const ins = inspectors.find(i => i.area === r0.area);\n  const where = r0.road ? (r0.cross_street ? `${r0.road} & ${r0.cross_street}` : `${r0.house_number ? r0.house_number + ' ' : ''}${r0.road}${r0.landmark ? ' (' + r0.landmark + ')' : ''}`) + (r0.suburb ? `, ${r0.suburb}` : '') : 'Location not provided';\n  return {\n    case_id: 'SRD-' + hash(`${c.hazard_code}|${c.key}`), priority: label, band, risk_score: band === 'INCOMPLETE' ? 0 : score, score_breakdown: band === 'INCOMPLETE' ? 'not scored - location missing' : breakdown,\n    priority_reason: why.join('; '), hazard_code: c.hazard_code, hazard_label: rl.description, department: national ? 'SANRAL (referral)' : rl.department,\n    inspection_required: !national && !c.incomplete && (rl.inspection_required === true || band === 'P1' || band === 'P2'),\n    location_text: where, road: r0.road, cross_street: r0.cross_street, suburb: r0.suburb, area: r0.area,\n    lat: r0.lat ?? '', lon: r0.lon ?? '', geocode_status: r0.geo.status, hotspot_id: hs?.hotspot_id || '', hotspot_match: r0.hsHow,\n    reports: n, languages: [...new Set(c.reports.map(r => r.language))].join(', '),\n    first_reported: new Date(first).toISOString(), due_by: new Date(Math.max(first, now) + capH * 3600e3).toISOString(),\n    inspector_id: ins?.inspector_id || '', inspector: ins?.name || '',\n    residents: c.reports.map(r => ({ email_id: r.email_id, name: r.resident.name, email: r.resident.email, phone: r.resident.phone, language: r.language })),\n    summary_en: r0.hazard_summary_en, danger_signals: [...new Set(c.reports.flatMap(r => r.danger_signals || []))].join('; '),\n    flags: flags.join(' | '), corrections: log.join(' | '), sources: c.reports.map(r => `email:${r.email_id}`).join(' ; '),\n  };\n});\nconst order = { P1: 0, P2: 1, P3: 2, INCOMPLETE: 3, REFERRED: 4 };\ncases.sort((a, b) => order[a.band] - order[b.band] || b.risk_score - a.risk_score);\nconst skipped = other.map(o => ({ email_id: o.email_id, subject: o.subject, kind: o.kind, reason: o.reason || o.flags?.join('; ') || '' }));\nreturn cases.map((c, i) => ({ json: { ...c, _skipped: i === 0 ? skipped : undefined } }));\n"
+      }
+    },
+    {
+      "id": "49ca01fd-e88f-4b1b-b950-e97011d8d6e2",
+      "name": "Read Inspector Calendar",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.3,
+      "position": [
+        2420,
+        300
+      ],
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "primary",
+          "mode": "list",
+          "cachedResultName": "primary"
+        },
+        "returnAll": true,
+        "timeMin": "={{ $now.minus({days: 1}).toISO() }}",
+        "timeMax": "={{ $now.plus({days: 14}).toISO() }}",
+        "options": {
+          "singleEvents": true
+        }
+      },
+      "executeOnce": true,
+      "alwaysOutputData": true
+    },
+    {
+      "id": "f971707f-d786-4354-96d3-ad6065801425",
+      "name": "Schedule Inspections",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2640,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// \"Schedule Inspections\" (Run Once for All Items)\n// Reads inspectors' existing calendar events (busy blocks + already-booked cases) and books the earliest free\n// 1-hour slot per case, in priority order, inside Mon-Fri 08:00-16:00 SAST. Idempotent: a case that already has\n// an event is not booked twice.\nconst cases = $('Verify, Dedupe & Score').all().map(i => i.json);\nconst events = $('Read Inspector Calendar').all().map(i => i.json).filter(e => e.summary && e.start);\nconst OFF = 2 * 3600e3; // SAST = UTC+2, no daylight saving\nconst sast = ms => new Date(ms + OFF);\nconst iso = ms => { const d = sast(ms); return d.toISOString().slice(0, 19) + '+02:00'; };\nconst pretty = ms => { const d = sast(ms); return `${['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getUTCDay()]} ${d.getUTCDate()} ${['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getUTCMonth()]} ${String(d.getUTCHours()).padStart(2,'0')}:00`; };\nconst t = e => Date.parse(e.dateTime || e.date);\n\nconst busy = {};   // inspector -> [[start,end]]\nconst booked = {}; // case_id -> event\nfor (const e of events) {\n  const m = e.summary.match(/\\[(INS-\\d+)\\]/);\n  if (m) (busy[m[1]] ||= []).push([t(e.start), t(e.end)]);\n  const c = e.summary.match(/SRD-[0-9A-Z]{6}/);\n  if (c) booked[c[0]] = e;\n}\nfunction nextSlot(ins, fromMs) {\n  let d = sast(fromMs); d.setUTCMinutes(0, 0, 0);\n  let ms = d.getTime() - OFF + 3600e3; // next full hour\n  for (let k = 0; k < 24 * 10; k++, ms += 3600e3) {\n    const s = sast(ms), h = s.getUTCHours(), wd = s.getUTCDay();\n    if (wd === 0 || wd === 6 || h < 8 || h > 15) continue;\n    const clash = (busy[ins] || []).some(([a, b]) => ms < b && ms + 3600e3 > a);\n    if (!clash) return ms;\n  }\n  return null;\n}\nconst COLOR = { P1: '11', P2: '6', P3: '9' };\nconst now = Date.now();\nreturn cases.map(c => {\n  const out = { ...c, inspection_start: '', start_iso: '', end_iso: '', calendar_action: 'none', schedule_note: '' };\n  if (!c.inspection_required || !c.inspector_id) { out.schedule_note = c.inspection_required ? 'no inspector for area' : 'no inspection needed'; return { json: out }; }\n  const existing = booked[c.case_id];\n  if (existing) {\n    const s = t(existing.start);\n    Object.assign(out, { inspection_start: pretty(s), start_iso: iso(s), end_iso: iso(t(existing.end)), calendar_action: 'exists',\n                         schedule_note: 'already booked in a previous run - not double-booked' });\n    return { json: out };\n  }\n  const s = nextSlot(c.inspector_id, now);\n  if (s === null) { out.schedule_note = 'no free slot in the next 10 days'; out.flags = [c.flags, 'no inspector slot available'].filter(Boolean).join(' | '); return { json: out }; }\n  (busy[c.inspector_id] ||= []).push([s, s + 3600e3]);\n  const late = s > Date.parse(c.due_by);\n  Object.assign(out, {\n    inspection_start: pretty(s), start_iso: iso(s), end_iso: iso(s + 3600e3), calendar_action: 'create',\n    schedule_note: late ? `earliest slot is after the ${c.band} deadline - escalate to standby inspector` : 'within deadline',\n    event_summary: `[${c.inspector_id}] ${c.band} inspect: ${c.hazard_label.split(' or ')[0]} - ${c.location_text} (${c.case_id})`,\n    event_description: [`Case ${c.case_id} \u00b7 ${c.priority} \u00b7 risk score ${c.risk_score}`, `Score: ${c.score_breakdown}`,\n      c.priority_reason && `Why: ${c.priority_reason}`, `Reports: ${c.reports} (${c.languages})`, `Summary: ${c.summary_en}`,\n      c.hotspot_id && `Crash hotspot: ${c.hotspot_id} (${c.hotspot_match})`, `Due by: ${pretty(Date.parse(c.due_by))}`,\n      c.lat && `Map: https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=18/${c.lat}/${c.lon}`,\n      c.flags && `Flags: ${c.flags}`].filter(Boolean).join('\\n'),\n    event_color: COLOR[c.band] || '8',\n  });\n  if (late) out.flags = [c.flags, 'inspection slot later than deadline'].filter(Boolean).join(' | ');\n  return { json: out };\n});\n"
+      }
+    },
+    {
+      "id": "08be05b0-8080-42aa-9878-b754fd279c2e",
+      "name": "Needs New Event?",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2900,
+        60
+      ],
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "d207c698-3af4-41dc-af9f-956143abe3cf",
+              "leftValue": "={{ $json.calendar_action }}",
+              "rightValue": "create",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "2977f3b9-0a7c-4423-a14a-02cffc583d41",
+      "name": "Book Inspection (Calendar)",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.3,
+      "position": [
+        3140,
+        60
+      ],
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "primary",
+          "mode": "list",
+          "cachedResultName": "primary"
+        },
+        "start": "={{ $json.start_iso }}",
+        "end": "={{ $json.end_iso }}",
+        "useDefaultReminders": true,
+        "additionalFields": {
+          "summary": "={{ $json.event_summary }}",
+          "description": "={{ $json.event_description }}",
+          "location": "={{ $json.location_text }}, Cape Town",
+          "color": "={{ $json.event_color }}"
+        }
+      }
+    },
+    {
+      "id": "deb77e20-1f85-4f28-a093-2428f0f28c2b",
+      "name": "Sheet Rows",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        300
+      ],
+      "parameters": {
+        "jsCode": "// \"Sheet Rows\": flatten cases for the Command Centre Google Sheet (one row per case, upserted on case_id).\nconst prev = Object.fromEntries($('Read Existing Cases').all().map(i => i.json).filter(r => r.case_id)\n  .map(r => [r.case_id, String(r.replied_email_ids || '')]));\nreturn $('Schedule Inspections').all().map(({ json: c }) => {\n  const replied = new Set(String(prev[c.case_id] || '').split(';').filter(Boolean));\n  c.residents.filter(r => r.email || c.band === 'INCOMPLETE').forEach(r => replied.add(r.email_id));\n  return { json: {\n    case_id: c.case_id, priority: c.priority, risk_score: c.risk_score, score_breakdown: c.score_breakdown,\n    priority_reason: c.priority_reason, hazard_code: c.hazard_code, hazard_label: c.hazard_label, department: c.department,\n    location_text: c.location_text, road: c.road, cross_street: c.cross_street, suburb: c.suburb, area: c.area,\n    lat: c.lat, lon: c.lon, geocode_status: c.geocode_status, hotspot_id: c.hotspot_id, reports: c.reports,\n    languages: c.languages, inspector: c.inspector, inspection_start: c.inspection_start, schedule_note: c.schedule_note,\n    first_reported: c.first_reported, due_by: c.due_by, flags: c.flags, corrections: c.corrections, sources: c.sources,\n    residents: c.residents.map(r => `${r.name || '?'} <${r.email || 'no email'}>`).join('; '),\n    replied_email_ids: [...replied].join(';'), updated_at: new Date().toISOString(),\n  } };\n});\n"
+      }
+    },
+    {
+      "id": "8b8c1ecf-ba4c-43bc-b9f6-43cc684d6dd9",
+      "name": "Update Command Centre Sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        3140,
+        220
+      ],
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "={{ $('Config').first().json.sheet_url }}",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "cases",
+          "mode": "name"
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [
+            "case_id"
+          ],
+          "schema": []
+        },
+        "options": {}
+      }
+    },
+    {
+      "id": "912ea49c-582d-4301-a5f4-fcd87f4ffe4e",
+      "name": "Convert to CSV",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        3140,
+        400
+      ],
+      "parameters": {
+        "operation": "csv",
+        "options": {
+          "fileName": "hazard_cases.csv"
+        }
+      }
+    },
+    {
+      "id": "cea39adf-e281-400a-80a1-84be48bfe341",
+      "name": "Build Report",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3380,
+        400
+      ],
+      "parameters": {
+        "jsCode": "// \"Build Report\": HTML dashboard email + CSV attachment (binary from \"Convert to CSV\").\nconst cfg = $('Config').first().json;\nconst cases = $('Schedule Inspections').all().map(i => i.json);\nconst skipped = $('Verify, Dedupe & Score').first().json._skipped || [];\nconst esc = s => String(s ?? '').replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));\nconst C = { P1: '#dc2626', P2: '#d97706', P3: '#2563eb', REFERRED: '#6b7280', INCOMPLETE: '#9333ea' };\nconst n = b => cases.filter(c => c.band === b).length;\nconst reports = cases.reduce((s, c) => s + c.reports, 0);\nconst tile = (label, v, col) => `<td style=\"padding:10px 16px;border:1px solid #e5e7eb;text-align:center\"><div style=\"font-size:22px;font-weight:bold;color:${col}\">${v}</div><div style=\"font-size:11px;color:#6b7280\">${label}</div></td>`;\nconst rows = cases.map(c => `<tr>\n<td><span style=\"background:${C[c.band]};color:#fff;padding:2px 6px;border-radius:4px;font-size:11px\">${esc(c.priority)}</span><br><span style=\"font-size:11px\">${c.case_id}</span></td>\n<td><b>${esc(c.hazard_label)}</b><br>${esc(c.location_text)}${c.hotspot_id ? `<br><span style=\"color:#dc2626\">\u26a0 crash hotspot ${c.hotspot_id}</span>` : ''}</td>\n<td style=\"text-align:center\">${c.risk_score}</td><td style=\"text-align:center\">${c.reports}<br><span style=\"font-size:10px\">${esc(c.languages)}</span></td>\n<td>${esc(c.inspector)}<br>${esc(c.inspection_start || c.schedule_note)}</td>\n<td style=\"font-size:11px\">${esc(c.score_breakdown)}${c.priority_reason ? '<br><i>' + esc(c.priority_reason) + '</i>' : ''}</td>\n<td style=\"font-size:11px;color:#b45309\">${esc(c.flags)}</td></tr>`).join('\\n');\nconst html = `<div style=\"font-family:Arial,sans-serif;max-width:1100px\">\n<h2 style=\"margin-bottom:4px\">\ud83d\udea6 Safer Roads Desk: hazard run report</h2>\n<div style=\"color:#6b7280;font-size:12px\">${new Date().toISOString().slice(0, 16).replace('T', ' ')} UTC \u00b7 synthetic demo data</div>\n<table style=\"border-collapse:collapse;margin:14px 0\"><tr>${tile('Emails read', reports + skipped.length, '#111')}${tile('Unique hazards', cases.length, '#111')}\n${tile('Duplicates merged', reports - cases.length, '#111')}${tile('P1 urgent', n('P1'), C.P1)}${tile('P2 high', n('P2'), C.P2)}${tile('P3 routine', n('P3'), C.P3)}\n${tile('Referred', n('REFERRED'), C.REFERRED)}${tile('Incomplete', n('INCOMPLETE'), C.INCOMPLETE)}</tr></table>\n${cfg.command_centre_url ? `<p><a href=\"${cfg.command_centre_url}\">Open the live Command Centre map \u2192</a></p>` : ''}\n<table border=\"1\" cellpadding=\"6\" style=\"border-collapse:collapse;font-size:12px;border-color:#e5e7eb\">\n<tr style=\"background:#f3f4f6\"><th>Priority</th><th>Hazard & location</th><th>Risk</th><th>Reports</th><th>Inspection</th><th>Why this score</th><th>Flags</th></tr>\n${rows}</table>\n${skipped.length ? `<p style=\"font-size:12px;color:#6b7280\">Not processed as road hazards: ${skipped.map(s => esc(`\"${s.subject}\" (${s.kind}${s.reason ? ': ' + s.reason : ''})`)).join('; ')}</p>` : ''}\n<p style=\"font-size:11px;color:#9ca3af\">Every value extracted by the AI was checked against the source email; full audit trail in the attached CSV (\"corrections\" column).</p></div>`;\nreturn [{ json: { subject: `[Safer Roads Desk] Run report: ${n('P1')} urgent, ${cases.length} hazards`, html }, binary: $input.first().binary }];\n"
+      }
+    },
+    {
+      "id": "d911363a-f18b-4f5e-b43f-6b9577845aaf",
+      "name": "Email Run Report",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3620,
+        400
+      ],
+      "parameters": {
+        "sendTo": "={{ $('Config').first().json.report_to }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.html }}",
+        "emailType": "html",
+        "options": {
+          "attachmentsUi": {
+            "attachmentsBinary": [
+              {
+                "property": "data"
+              }
+            ]
+          },
+          "appendAttribution": false
+        }
+      }
+    },
+    {
+      "id": "a0ec7ae1-5690-4a9b-98ea-f9b19a3d0712",
+      "name": "Reply Targets",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2900,
+        640
+      ],
+      "parameters": {
+        "jsCode": "// \"Reply Targets\": one acknowledgement per resident not yet replied to (state read from the sheet).\nconst cfg = $('Config').first().json;\nconst prev = new Set($('Read Existing Cases').all().map(i => i.json).filter(r => r.case_id)\n  .flatMap(r => String(r.replied_email_ids || '').split(';')).filter(Boolean));\nconst out = [];\nfor (const { json: c } of $('Schedule Inspections').all()) {\n  for (const r of c.residents) {\n    if (prev.has(r.email_id) || !r.email) continue;\n    const kind = c.band === 'INCOMPLETE' ? 'need_location' : c.band === 'REFERRED' ? 'referred' : 'acknowledge';\n    out.push({ json: {\n      kind, case_id: c.case_id, language: r.language || 'English', resident_name: r.name, resident_email: r.email,\n      hazard: c.hazard_label, location: c.location_text, priority: c.priority, inspection: c.inspection_start, due_by: c.due_by,\n      send_to: String(cfg.demo_mode) === 'true' ? cfg.report_to : r.email,\n      subject: `[Safer Roads Desk] Ref ${c.case_id}` + (String(cfg.demo_mode) === 'true' ? ` (demo: would go to ${r.email})` : ''),\n    } });\n  }\n}\nreturn out.length ? out : [{ json: { kind: 'none' } }];\n"
+      }
+    },
+    {
+      "id": "c26b3956-9471-4685-b507-4c8233ec78d0",
+      "name": "Draft Reply in Resident's Language (Claude)",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.5,
+      "position": [
+        3140,
+        640
+      ],
+      "parameters": {
+        "promptType": "define",
+        "text": "=Write a short, warm email reply from a municipal roads desk to a resident. Write it ENTIRELY in {{ $json.language }}\n(if the language is isiXhosa write in isiXhosa, if Afrikaans write in Afrikaans; otherwise English).\nMaximum 110 words. Plain text only, no subject line. Do not mention risk scores or internal priorities.\n\nFacts to use:\n- Resident name: {{ $json.resident_name || 'resident' }}\n- Reference number: {{ $json.case_id }}\n- Problem: {{ $json.hazard }} at {{ $json.location }}\n- Situation: {{ $json.kind }}\n  * acknowledge: thank them; say an inspector is scheduled for {{ $json.inspection || 'the coming days' }} and that urgent safety issues are prioritised.\n  * need_location: thank them; explain we could not tell where the problem is and ask for the street name and nearest cross street or landmark, replying to this email.\n  * referred: thank them; explain this road is a national road managed by SANRAL and the report has been forwarded to them.\n- Sign off as: Safer Roads Desk (demo)\nIf Situation is \"none\", reply with an empty string."
+      },
+      "retryOnFail": true,
+      "maxTries": 2
+    },
+    {
+      "id": "e70ded24-ada9-4046-abf7-c4f76f1c8294",
+      "name": "Assemble Replies",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3400,
+        640
+      ],
+      "parameters": {
+        "jsCode": "// \"Assemble Replies\": pair each LLM-drafted reply with its target (same order).\nconst targets = $('Reply Targets').all().map(i => i.json);\nreturn $input.all()\n  .map((it, i) => ({ ...targets[i], body: String(it.json.text || '').trim() }))\n  .filter(r => r.kind && r.kind !== 'none' && r.body)\n  .map(r => ({ json: r }));\n"
+      }
+    },
+    {
+      "id": "14a576eb-f7d8-4cac-b5b9-a674596692b2",
+      "name": "Send Resident Reply",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        3640,
+        640
+      ],
+      "parameters": {
+        "sendTo": "={{ $json.send_to }}",
+        "subject": "={{ $json.subject }}",
+        "message": "={{ $json.body }}",
+        "emailType": "text",
+        "options": {
+          "appendAttribution": false
+        }
+      }
+    },
+    {
+      "id": "87e279e8-04cc-4700-ae04-95d292fb0934",
+      "name": "Claude (extraction)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        1540,
+        520
+      ],
+      "parameters": {
+        "model": "anthropic/claude-sonnet-4.5",
+        "options": {
+          "temperature": 0
+        }
+      }
+    },
+    {
+      "id": "c722ceea-cd4a-4d45-93b0-b157d739b03b",
+      "name": "Claude (replies)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        3140,
+        860
+      ],
+      "parameters": {
+        "model": "anthropic/claude-sonnet-4.5",
+        "options": {
+          "temperature": 0
+        }
+      }
+    },
+    {
+      "id": "931e7621-165c-4ae2-b2ad-a1b27a2f709a",
+      "name": "Note 1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        200,
+        -120
+      ],
+      "parameters": {
+        "content": "## 1 \u00b7 Inputs\n**Web:** downloads the same reference data the Part 1 RAG app uses (road register, crash hotspots, hazard rules, inspectors).\n**Sheet:** reads existing cases (state, so re-runs don't double-book or re-reply).\n**Gmail:** reads resident complaint emails.",
+        "height": 200,
+        "width": 1060,
+        "color": 6
+      }
+    },
+    {
+      "id": "adfe6287-e716-4047-a3c2-5a7a0d714f1f",
+      "name": "Note 2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1300,
+        -120
+      ],
+      "parameters": {
+        "content": "## 2 \u00b7 Understand (Claude)\nOne call per email \u2192 strict JSON. The prompt forbids fixing or guessing values: **the AI extracts, the rules verify.**",
+        "height": 200,
+        "width": 420,
+        "color": 4
+      }
+    },
+    {
+      "id": "b82d4e74-6fab-4233-a020-403363d5be08",
+      "name": "Note 3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1760,
+        -120
+      ],
+      "parameters": {
+        "content": "## 3 \u00b7 Verify & decide\nGrounding check (every value must appear in the email) \u2192 road names onto the register (incl. Afrikaans) \u2192 **OpenStreetMap** address check \u2192 area/inspector \u2192 crash-hotspot match \u2192 **dedupe** \u2192 transparent risk score \u2192 priority.",
+        "height": 200,
+        "width": 640,
+        "color": 5
+      }
+    },
+    {
+      "id": "a399b9b7-4d56-434f-a100-d5f9dde0a605",
+      "name": "Note 4",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        2880,
+        -160
+      ],
+      "parameters": {
+        "content": "## 4 \u00b7 Act\n**Calendar:** reads inspector availability, books the earliest free slot by priority (idempotent).\n**Sheet:** feeds the live Command Centre map.\n**Gmail:** run report + replies in the resident's language.",
+        "height": 200,
+        "width": 980,
+        "color": 7
+      }
+    }
+  ],
+  "connections": {
+    "Run Agent (manual)": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 15 min (enable for autonomy)": {
+      "main": [
+        [
+          {
+            "node": "Config",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Reference Files",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reference Files": {
+      "main": [
+        [
+          {
+            "node": "Fetch Reference Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Reference Data": {
+      "main": [
+        [
+          {
+            "node": "Read Existing Cases",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Existing Cases": {
+      "main": [
+        [
+          {
+            "node": "Get Hazard Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Hazard Emails": {
+      "main": [
+        [
+          {
+            "node": "Prepare Emails",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Emails": {
+      "main": [
+        [
+          {
+            "node": "Extract Hazard (Claude)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Hazard (Claude)": {
+      "main": [
+        [
+          {
+            "node": "Parse, Ground & Normalise",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse, Ground & Normalise": {
+      "main": [
+        [
+          {
+            "node": "Geocode Address (OpenStreetMap)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Geocode Address (OpenStreetMap)": {
+      "main": [
+        [
+          {
+            "node": "Verify, Dedupe & Score",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify, Dedupe & Score": {
+      "main": [
+        [
+          {
+            "node": "Read Inspector Calendar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read Inspector Calendar": {
+      "main": [
+        [
+          {
+            "node": "Schedule Inspections",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Inspections": {
+      "main": [
+        [
+          {
+            "node": "Needs New Event?",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Sheet Rows",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Reply Targets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Needs New Event?": {
+      "main": [
+        [
+          {
+            "node": "Book Inspection (Calendar)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sheet Rows": {
+      "main": [
+        [
+          {
+            "node": "Update Command Centre Sheet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Convert to CSV",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Convert to CSV": {
+      "main": [
+        [
+          {
+            "node": "Build Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Report": {
+      "main": [
+        [
+          {
+            "node": "Email Run Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Reply Targets": {
+      "main": [
+        [
+          {
+            "node": "Draft Reply in Resident's Language (Claude)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Draft Reply in Resident's Language (Claude)": {
+      "main": [
+        [
+          {
+            "node": "Assemble Replies",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Assemble Replies": {
+      "main": [
+        [
+          {
+            "node": "Send Resident Reply",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude (extraction)": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Extract Hazard (Claude)",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Claude (replies)": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Draft Reply in Resident's Language (Claude)",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

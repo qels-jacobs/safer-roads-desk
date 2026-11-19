@@ -1,0 +1,5 @@
+inspector_id,name,area,suburbs,email,phone,shift,slot_minutes
+INS-01,Ayanda Nkosi,Northern,Bellville; Bellville South; Parow; Goodwood; Tygervalley,ayanda.nkosi@saferroads-demo.org,+27215550401,Mon-Fri 08:00-16:00,60
+INS-02,Riaan Jacobs,Central,Cape Town City Centre; City Centre; Cape Town; Woodstock; Sea Point; Green Point; Gardens; Bo-Kaap; Zonnebloem; District Six,riaan.jacobs@saferroads-demo.org,+27215550402,Mon-Fri 08:00-16:00,60
+INS-03,Fatima Davids,Southern,Claremont; Wynberg; Rondebosch; Newlands; Kenilworth; Athlone; Rondebosch East; Lansdowne,fatima.davids@saferroads-demo.org,+27215550403,Mon-Fri 08:00-16:00,60
+INS-04,Lwazi Mthembu,Cape Flats,Mitchells Plain; Khayelitsha; Gugulethu; Nyanga; Philippi; Lentegeur; Tafelsig; Site C,lwazi.mthembu@saferroads-demo.org,+27215550404,Mon-Fri 08:00-16:00,60

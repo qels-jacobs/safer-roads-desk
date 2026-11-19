@@ -1,0 +1,27 @@
+road_id,road_name,area,suburbs,road_class,speed_limit_kmh,lanes,pedestrian_volume,jurisdiction
+RD-001,Voortrekker Road,Northern,Bellville; Parow; Goodwood,Arterial,60,4,High,Municipal
+RD-002,Durban Road,Northern,Bellville; Tygervalley,Arterial,60,4,High,Municipal
+RD-003,Robert Sobukwe Road,Northern,Bellville South; Bellville,Arterial,70,4,Medium,Municipal
+RD-004,Modderdam Road,Northern,Bellville South,Arterial,70,4,Medium,Municipal
+RD-005,Buitengracht Street,Central,Cape Town City Centre; Bo-Kaap,Arterial,60,6,High,Municipal
+RD-006,Strand Street,Central,Cape Town City Centre,Arterial,60,4,High,Municipal
+RD-007,Adderley Street,Central,Cape Town City Centre,Collector,40,4,High,Municipal
+RD-008,Main Road,Central,Sea Point; Green Point,Collector,60,2,High,Municipal
+RD-009,Sir Lowry Road,Central,Woodstock; District Six,Arterial,60,4,High,Municipal
+RD-010,Searle Street,Central,Woodstock,Local,40,2,Medium,Municipal
+RD-011,Main Road,Southern,Claremont; Wynberg; Rondebosch; Kenilworth; Newlands,Arterial,60,4,High,Municipal
+RD-012,Lansdowne Road,Southern,Claremont; Lansdowne; Athlone,Arterial,60,4,Medium,Municipal
+RD-013,Klipfontein Road,Southern,Athlone; Rondebosch East,Arterial,70,4,High,Municipal
+RD-014,Jan Smuts Drive,Southern,Athlone,Arterial,70,4,Medium,Municipal
+RD-015,Church Street,Southern,Wynberg,Local,40,2,High,Municipal
+RD-016,AZ Berman Drive,Cape Flats,Mitchells Plain; Lentegeur,Arterial,70,4,High,Municipal
+RD-017,Morgenster Road,Cape Flats,Mitchells Plain,Collector,60,2,High,Municipal
+RD-018,Lansdowne Road,Cape Flats,Khayelitsha; Philippi; Nyanga,Arterial,70,4,High,Municipal
+RD-019,Spine Road,Cape Flats,Khayelitsha; Mitchells Plain,Arterial,70,4,High,Municipal
+RD-020,NY1,Cape Flats,Gugulethu,Collector,60,2,High,Municipal
+RD-021,Klipfontein Road,Cape Flats,Gugulethu; Nyanga,Arterial,70,4,High,Municipal
+RD-022,Japhta K Masemola Road,Cape Flats,Khayelitsha,Arterial,70,4,High,Municipal
+RD-025,Old Paarl Road,Northern,Bellville,Arterial,60,4,Medium,Municipal
+RD-026,Glengariff Road,Central,Sea Point,Local,40,2,Medium,Municipal
+RD-023,N2,Cape Flats,Khayelitsha; Nyanga; Gugulethu; Athlone,Freeway,120,6,Low,National (SANRAL)
+RD-024,N1,Northern,Parow; Goodwood; Bellville,Freeway,120,6,Low,National (SANRAL)
