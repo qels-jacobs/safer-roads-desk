@@ -22,7 +22,9 @@ def load_cases(url: str | None):
     """Returns (cases, mode, note). No Streamlit UI calls in here: cached functions must stay side-effect free."""
     if url:
         try:
-            df = pd.read_csv(url)
+            import time
+            fresh = url + ("&" if "?" in url else "?") + f"cb={int(time.time())}"  # bypass Google's publish cache
+            df = pd.read_csv(fresh)
             if len(df):
                 return df, "live", ""
             # Live sheet connected but empty: show an honest empty state, not sample data.
