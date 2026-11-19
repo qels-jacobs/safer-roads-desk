@@ -14,6 +14,9 @@ def get_pipeline():
                        answer_model=st.secrets.get("ANSWER_MODEL", "anthropic/claude-sonnet-4.5"))
 
 
+if not st.secrets.get("OPENROUTER_API_KEY"):
+    st.error("OPENROUTER_API_KEY is missing. Add it in the app's Settings → Secrets, then reboot the app.")
+    st.stop()
 rag = get_pipeline()
 
 with st.sidebar:
