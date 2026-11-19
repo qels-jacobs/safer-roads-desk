@@ -19,15 +19,18 @@ def base_layers():
 
 @st.cache_data(ttl=20, show_spinner=False)
 def load_cases(url: str | None):
+    """Returns (cases, mode, note). No Streamlit UI calls in here: cached functions must stay side-effect free."""
     if url:
         try:
             df = pd.read_csv(url)
             if len(df):
-                return df, "live"
-            st.toast("The live sheet has no cases yet (run the n8n agent); showing sample cases.")
+                return df, "live", ""
+            note = "The live sheet has no cases yet. Run the n8n agent."
         except Exception as e:
-            st.toast(f"Could not read the live sheet ({e}); showing sample cases.")
-    return pd.read_csv(DATA / "demo_cases.csv"), "sample"
+            note = f"Could not read the live sheet ({type(e).__name__})."
+    else:
+        note = ""
+    return pd.read_csv(DATA / "demo_cases.csv"), "sample", note
 
 
 crashes, hotspots = base_layers()
@@ -39,11 +42,11 @@ st.caption("Crash heatmap and hotspots come from the Part 1 knowledge base. Haza
 @st.fragment(run_every="30s")
 def live_view():
     url = st.secrets.get("CASES_CSV_URL", DEFAULT_CASES_URL)
-    cases, mode = load_cases(url)
+    cases, mode, note = load_cases(url)
     cases["band"] = cases["priority"].astype(str).str.split(" ").str[0]
     top = st.columns([4, 1])
     top[0].caption(("🟢 Live from the agent's Google Sheet" if mode == "live" else
-                    "🟡 Showing sample cases. Add CASES_CSV_URL in the app secrets to go live.") + " · refreshes every 30 s")
+                    f"🟡 Showing sample cases. {note}") + " · refreshes every 30 s")
     if top[1].button("🔄 Refresh now", width="stretch"):
         load_cases.clear()
         st.rerun()
