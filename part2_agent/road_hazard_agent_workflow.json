@@ -2,7 +2,7 @@
   "name": "Safer Roads Desk \u00b7 Road Hazard Agent",
   "nodes": [
     {
-      "id": "f57bbca3-4715-47ce-83f8-7f16081b1d67",
+      "id": "f499be7d-6821-441f-8d04-b85720ba546f",
       "name": "Run Agent (manual)",
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
@@ -13,7 +13,7 @@
       "parameters": {}
     },
     {
-      "id": "313ce6f1-e4a3-4746-9fe6-bbab7fcd723c",
+      "id": "1fa8741a-5e6a-4b8b-b5f6-d4e359ee5f8b",
       "name": "Every 15 min (enable for autonomy)",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
@@ -34,7 +34,7 @@
       "disabled": true
     },
     {
-      "id": "0f09d22f-2e91-4a64-9509-14a71a5a5a16",
+      "id": "7acc47bd-539f-4032-a526-8cbe2ce45871",
       "name": "Config",
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
@@ -46,39 +46,39 @@
         "assignments": {
           "assignments": [
             {
-              "id": "d51bdb0f-ddb0-4444-ab77-65c6c9cf3072",
+              "id": "1c2b9c9d-9731-4cea-b80e-083a0dd61387",
               "name": "reference_base_url",
               "value": "https://raw.githubusercontent.com/qels-jacobs/safer-roads-desk/main/part1_rag/data",
               "type": "string"
             },
             {
-              "id": "b94e41b6-07c1-4a20-b81c-77b7bb30cf9a",
+              "id": "5ca6e0fd-2160-476c-9db7-6ab53f2491da",
               "name": "gmail_query",
-              "value": "from:me to:me newer_than:7d -subject:\"[Safer Roads Desk]\"",
+              "value": "from:me newer_than:7d -subject:\"[Safer Roads Desk]\"",
               "type": "string"
             },
             {
-              "id": "03c6fd42-4975-453f-b0d0-2830da7acefd",
+              "id": "543fe119-791e-425d-b956-b50c2381cfd2",
               "name": "report_to",
-              "value": "your.demo.account@gmail.com",
+              "value": "saferoads.demo@gmail.com",
               "type": "string"
             },
             {
-              "id": "d7077c1f-2970-4052-b4e4-4a022bcee35d",
+              "id": "2247dc79-ab3b-4d11-b81d-77d8a8494f4d",
               "name": "demo_mode",
               "value": "true",
               "type": "string"
             },
             {
-              "id": "2ed0f61e-460d-40cf-ba62-06c3b4556395",
+              "id": "18fec8b7-2ffc-44c7-99c0-2514780dbb97",
               "name": "sheet_url",
               "value": "https://docs.google.com/spreadsheets/d/1pDA349_uhQ6fBTi_JCgEUGqnQxEyE8ZNto9gzQx_szQ/edit",
               "type": "string"
             },
             {
-              "id": "264738f3-a6d6-4239-a8bc-d0c6623108b3",
+              "id": "315b407c-c981-4d44-90d3-3869e0f429e6",
               "name": "command_centre_url",
-              "value": "https://YOUR-APP.streamlit.app/command_centre",
+              "value": "https://safer-roads-desk.streamlit.app/command_centre",
               "type": "string"
             }
           ]
@@ -87,7 +87,7 @@
       }
     },
     {
-      "id": "ed4d6cb8-052d-4818-b90a-5e04ca7a7be5",
+      "id": "a8e0c2e3-bcc9-4c88-8dcb-d6623ebe83d9",
       "name": "Reference Files",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -100,7 +100,7 @@
       }
     },
     {
-      "id": "9a360a2e-33f1-4694-ad32-cb40a139953f",
+      "id": "2118bc38-6e36-4102-8fe2-9c89eb8a8863",
       "name": "Fetch Reference Data",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
@@ -123,7 +123,7 @@
       "maxTries": 3
     },
     {
-      "id": "339a9469-af86-4976-8393-a4a00b457acb",
+      "id": "11952276-c09f-48c1-98be-f7330b3f390a",
       "name": "Read Existing Cases",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
@@ -150,7 +150,7 @@
       "onError": "continueRegularOutput"
     },
     {
-      "id": "241003ca-f294-483a-9208-75ec066a0534",
+      "id": "817894ea-3250-47e7-a2e6-7e21fb779b8a",
       "name": "Get Hazard Emails",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
@@ -171,7 +171,7 @@
       "executeOnce": true
     },
     {
-      "id": "e0fae8fd-8a1a-4552-bafe-82397ba9c9dc",
+      "id": "c7b14d46-51f1-4e20-be39-704b7e3891a4",
       "name": "Prepare Emails",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -184,7 +184,7 @@
       }
     },
     {
-      "id": "1d32f1b5-3437-4189-9523-48a2f3e44926",
+      "id": "35b57480-a5a2-4342-85ed-b5c2a113b14d",
       "name": "Extract Hazard (Claude)",
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
@@ -200,7 +200,7 @@
       "maxTries": 2
     },
     {
-      "id": "62ccbb49-1f74-4f19-85f0-da09c3433574",
+      "id": "5c046ba2-ed28-410f-a651-361d8115ff57",
       "name": "Parse, Ground & Normalise",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -213,7 +213,7 @@
       }
     },
     {
-      "id": "9cabc78f-d0b1-4624-9e1a-d2f45cd03da7",
+      "id": "d87d6caa-d217-4a96-b721-65ca85ce358f",
       "name": "Geocode Address (OpenStreetMap)",
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
@@ -277,7 +277,7 @@
       "onError": "continueRegularOutput"
     },
     {
-      "id": "c10608f7-1f82-4871-88cf-51d01f725216",
+      "id": "756a0ce8-1329-4bba-b741-254ea10e66e9",
       "name": "Verify, Dedupe & Score",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -286,11 +286,11 @@
         300
       ],
       "parameters": {
-        "jsCode": "// \"Verify, Dedupe & Score\" (Run Once for All Items)\n// $input = Nominatim responses, index-aligned with \"Parse, Ground & Normalise\".\nconst items = $('Parse, Ground & Normalise').all().map(i => i.json);\nconst ref = Object.fromEntries($('Fetch Reference Data').all().map((r, i) => [$('Reference Files').all()[i].json.name, r.json.data]));\nfunction parseCsv(text) {\n  const rows = []; let row = [], cur = '', q = false;\n  for (let i = 0; i < text.length; i++) {\n    const c = text[i];\n    if (q) { if (c === '\"' && text[i + 1] === '\"') { cur += '\"'; i++; } else if (c === '\"') q = false; else cur += c; }\n    else if (c === '\"') q = true; else if (c === ',') { row.push(cur); cur = ''; }\n    else if (c === '\\n' || c === '\\r') { if (c === '\\r' && text[i + 1] === '\\n') i++; row.push(cur); rows.push(row); row = []; cur = ''; }\n    else cur += c;\n  }\n  if (cur || row.length) { row.push(cur); rows.push(row); }\n  const [head, ...body] = rows.filter(r => r.some(x => x.trim()));\n  return body.map(r => Object.fromEntries(head.map((h, i) => [h.trim(), (r[i] || '').trim()])));\n}\nconst roads = parseCsv(ref.road_register), hotspots = parseCsv(ref.hotspots), inspectors = parseCsv(ref.inspectors);\nconst rulesDoc = JSON.parse(ref.hazard_rules);\nconst rule = Object.fromEntries(rulesDoc.hazard_types.map(r => [r.hazard_code, r]));\nconst low = s => String(s || '').toLowerCase().trim();\nconst suburbArea = {};\ninspectors.forEach(ins => ins.suburbs.split(';').forEach(s => { suburbArea[low(s)] = ins.area; }));\nconst toRad = d => d * Math.PI / 180;\nconst distM = (a, b, c, d) => { const R = 6371000, x = toRad(c - a), y = toRad(d - b);\n  const h = Math.sin(x / 2) ** 2 + Math.cos(toRad(a)) * Math.cos(toRad(c)) * Math.sin(y / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };\nconst hash = s => { let h = 5381; for (const ch of s) h = ((h << 5) + h + ch.charCodeAt(0)) >>> 0; return h.toString(36).toUpperCase().slice(0, 6).padStart(6, '0'); };\n\nconst reports = [], other = [];\nitems.forEach((it, i) => {\n  if (it.kind !== 'report') { other.push(it); return; }\n  // ---- 1. map verification (OpenStreetMap / Nominatim)\n  let geo = null;\n  try { const g = JSON.parse($input.all()[i]?.json?.geo_raw || '[]'); geo = Array.isArray(g) && g.length ? g[0] : null; } catch (e) { geo = null; }\n  it.geo = { status: 'not_found' };\n  if (it.geocode_query && geo) {\n    const a = geo.address || {};\n    const osmRoad = a.road || a.pedestrian || '';\n    const osmSuburb = a.suburb || a.neighbourhood || a.quarter || a.city_district || a.town || '';\n    const roadOk = low(osmRoad).replace(/ (road|street|drive|avenue)$/, '') === low(it.road).replace(/ (road|street|drive|avenue)$/, '');\n    it.geo = { status: roadOk ? 'verified' : 'partial', lat: +geo.lat, lon: +geo.lon, osm_road: osmRoad, osm_suburb: osmSuburb,\n               precision: geo.addresstype || geo.type, display: geo.display_name };\n    if (!roadOk) it.flags.push(`map lookup returned \"${osmRoad || geo.display_name}\" not \"${it.road}\" - location needs checking`);\n    if (it.suburb_reported && osmSuburb && low(osmSuburb) !== low(it.suburb_reported) && !suburbArea[low(it.suburb_reported)])\n      it.flags.push(`resident said \"${it.suburb_reported}\", map says \"${osmSuburb}\"`);\n  } else if (it.geocode_query) it.flags.push('address could not be verified on the map');\n\n  // ---- 2. area, road segment, hotspot\n  const suburb = it.geo.osm_suburb || it.suburb_reported;\n  const segs = roads.filter(r => low(r.road_name) === low(it.road));\n  let seg = segs.find(r => r.suburbs.split(';').some(s => low(s) === low(suburb))) || (segs.length === 1 ? segs[0] : null);\n  let area = suburbArea[low(suburb)] || seg?.area || '';\n  if (!seg && segs.length > 1 && area) seg = segs.find(r => r.area === area);\n  const crossSeg = roads.find(r => low(r.road_name) === low(it.cross_street) && (!area || r.area === area));\n  const pair = [low(it.road), low(it.cross_street)].sort().join('|');\n  let hs = hotspots.find(h => [low(h.road_a), low(h.road_b)].sort().join('|') === pair && (!area || h.area === area));\n  let hsHow = hs ? 'intersection match' : '';\n  if (!hs && it.geo.lat) {\n    const near = hotspots.map(h => [h, distM(it.geo.lat, it.geo.lon, +h.lat, +h.lon)]).sort((a, b) => a[1] - b[1])[0];\n    if (near && near[1] <= 200 && [low(near[0].road_a), low(near[0].road_b)].includes(low(it.road))) { hs = near[0]; hsHow = `within ${Math.round(near[1])} m`; }\n  }\n  if (!area && hs) area = hs.area;\n  if (!seg && it.road) it.flags.push(`\"${it.road}\" not in road register - defaults used (local road, 60 km/h, medium pedestrian volume)`);\n  if (!area) it.flags.push('could not determine area / inspector');\n  Object.assign(it, { area, suburb, seg, crossSeg, hs, hsHow,\n    lat: hs ? +hs.lat : it.geo.lat, lon: hs ? +hs.lon : it.geo.lon });\n  reports.push(it);\n});\n\n// ---- 3. deduplicate: same hazard + same place (intersection pair, house number, or <=120 m)\nconst placeKey = r => r.cross_street ? [low(r.road), low(r.cross_street)].sort().join('&') : `${low(r.road)}#${r.house_number || low(r.landmark) || ''}`;\nconst clusters = [];\nfor (const r of reports.filter(r => r.road)) {\n  const c = clusters.find(c => c.hazard_code === r.hazard_code && (c.key === placeKey(r) ||\n    (c.lat && r.lat && distM(c.lat, c.lon, r.lat, r.lon) <= 120 && low(c.reports[0].road) === low(r.road))));\n  if (c) c.reports.push(r); else clusters.push({ hazard_code: r.hazard_code, key: placeKey(r), lat: r.lat, lon: r.lon, reports: [r] });\n}\nreports.filter(r => !r.road).forEach(r => clusters.push({ hazard_code: r.hazard_code, key: `nolocation#${r.email_id}`, reports: [r], incomplete: true }));\n\n// ---- 4. risk score (formula published in hazard_response_rules.json)\nconst PED = { High: 1.5, Medium: 1.2, Low: 1.0 };\nconst now = Date.now();\nconst cases = clusters.map(c => {\n  const r0 = c.reports.find(r => r.geo.status === 'verified') || c.reports.slice().sort((a, b) => a.received.localeCompare(b.received))[0];\n  const rl = rule[c.hazard_code], seg = r0.seg, cs = r0.crossSeg, hs = r0.hs;\n  const n = c.reports.length;\n  let flags = [...new Set(c.reports.flatMap(r => r.flags))];\n  if (c.reports.some(r => r.geo.status === 'verified')) flags = flags.filter(f => f !== 'address could not be verified on the map');\n  const log = c.reports.flatMap(r => r.log.map(l => `${r.email_id}: ${l}`));\n  if (n > 1) log.push(`merged ${n} reports of the same hazard (${c.reports.map(r => r.language).join(', ')})`);\n  const speed = Math.max(+(seg?.speed_limit_kmh || 60), +(cs?.speed_limit_kmh || 0));\n  const pedVol = [seg?.pedestrian_volume, cs?.pedestrian_volume].includes('High') ? 'High' : [seg?.pedestrian_volume, cs?.pedestrian_volume].includes('Medium') || !seg ? 'Medium' : 'Low';\n  const fs = Math.round(speed / 60 * 100) / 100, fp = PED[pedVol];\n  const fh = hs ? Math.min(3, Math.round((1 + 0.2 * +hs.fatal + 0.05 * +hs.serious) * 100) / 100) : 1;\n  const fr = Math.min(1.5, Math.round((1 + 0.1 * (n - 1)) * 100) / 100);\n  const score = Math.round(rl.severity * fs * fp * fh * fr * 10) / 10;\n  const breakdown = `${rl.severity} severity (${c.hazard_code}) \u00d7 ${fs} speed (${speed} km/h) \u00d7 ${fp} pedestrians (${pedVol}) \u00d7 ${fh} hotspot` +\n    (hs ? ` (${hs.hotspot_id}: ${hs.fatal} fatal, ${hs.serious} serious)` : ' (none)') + ` \u00d7 ${fr} reports (${n}) = ${score}`;\n  let band = score >= 12 ? 'P1' : score >= 6 ? 'P2' : 'P3';\n  const why = [];\n  if (c.hazard_code === 'traffic_signal_outage' && hs && band !== 'P1') { band = 'P1'; why.push('override: signal outage at a hotspot is always P1'); }\n  const national = [seg?.jurisdiction, cs?.jurisdiction].some(j => String(j || '').startsWith('National'));\n  if (national) { band = 'REFERRED'; why.push('national road - referred to SANRAL'); }\n  if (c.incomplete) { band = 'INCOMPLETE'; why.push('no location - resident asked for details'); }\n  const capH = band === 'P1' ? 4 : band === 'P2' ? Math.min(48, rl.repair_deadline_hours) : rl.repair_deadline_hours;\n  const first = Math.min(...c.reports.map(r => Date.parse(r.received) || now));\n  const label = { P1: 'P1 - Urgent', P2: 'P2 - High', P3: 'P3 - Routine', REFERRED: 'REFERRED - SANRAL', INCOMPLETE: 'INCOMPLETE - needs location' }[band];\n  const ins = inspectors.find(i => i.area === r0.area);\n  const where = r0.road ? (r0.cross_street ? `${r0.road} & ${r0.cross_street}` : `${r0.house_number ? r0.house_number + ' ' : ''}${r0.road}${r0.landmark ? ' (' + r0.landmark + ')' : ''}`) + (r0.suburb ? `, ${r0.suburb}` : '') : 'Location not provided';\n  return {\n    case_id: 'SRD-' + hash(`${c.hazard_code}|${c.key}`), priority: label, band, risk_score: band === 'INCOMPLETE' ? 0 : score, score_breakdown: band === 'INCOMPLETE' ? 'not scored - location missing' : breakdown,\n    priority_reason: why.join('; '), hazard_code: c.hazard_code, hazard_label: rl.description, department: national ? 'SANRAL (referral)' : rl.department,\n    inspection_required: !national && !c.incomplete && (rl.inspection_required === true || band === 'P1' || band === 'P2'),\n    location_text: where, road: r0.road, cross_street: r0.cross_street, suburb: r0.suburb, area: r0.area,\n    lat: r0.lat ?? '', lon: r0.lon ?? '', geocode_status: r0.geo.status, hotspot_id: hs?.hotspot_id || '', hotspot_match: r0.hsHow,\n    reports: n, languages: [...new Set(c.reports.map(r => r.language))].join(', '),\n    first_reported: new Date(first).toISOString(), due_by: new Date(Math.max(first, now) + capH * 3600e3).toISOString(),\n    inspector_id: ins?.inspector_id || '', inspector: ins?.name || '',\n    residents: c.reports.map(r => ({ email_id: r.email_id, name: r.resident.name, email: r.resident.email, phone: r.resident.phone, language: r.language })),\n    summary_en: r0.hazard_summary_en, danger_signals: [...new Set(c.reports.flatMap(r => r.danger_signals || []))].join('; '),\n    flags: flags.join(' | '), corrections: log.join(' | '), sources: c.reports.map(r => `email:${r.email_id}`).join(' ; '),\n  };\n});\nconst order = { P1: 0, P2: 1, P3: 2, INCOMPLETE: 3, REFERRED: 4 };\ncases.sort((a, b) => order[a.band] - order[b.band] || b.risk_score - a.risk_score);\nconst skipped = other.map(o => ({ email_id: o.email_id, subject: o.subject, kind: o.kind, reason: o.reason || o.flags?.join('; ') || '' }));\nreturn cases.map((c, i) => ({ json: { ...c, _skipped: i === 0 ? skipped : undefined } }));\n"
+        "jsCode": "// \"Verify, Dedupe & Score\" (Run Once for All Items)\n// $input = Nominatim responses, index-aligned with \"Parse, Ground & Normalise\".\nconst items = $('Parse, Ground & Normalise').all().map(i => i.json);\nconst ref = Object.fromEntries($('Fetch Reference Data').all().map((r, i) => [$('Reference Files').all()[i].json.name, r.json.data]));\nfunction parseCsv(text) {\n  const rows = []; let row = [], cur = '', q = false;\n  for (let i = 0; i < text.length; i++) {\n    const c = text[i];\n    if (q) { if (c === '\"' && text[i + 1] === '\"') { cur += '\"'; i++; } else if (c === '\"') q = false; else cur += c; }\n    else if (c === '\"') q = true; else if (c === ',') { row.push(cur); cur = ''; }\n    else if (c === '\\n' || c === '\\r') { if (c === '\\r' && text[i + 1] === '\\n') i++; row.push(cur); rows.push(row); row = []; cur = ''; }\n    else cur += c;\n  }\n  if (cur || row.length) { row.push(cur); rows.push(row); }\n  const [head, ...body] = rows.filter(r => r.some(x => x.trim()));\n  return body.map(r => Object.fromEntries(head.map((h, i) => [h.trim(), (r[i] || '').trim()])));\n}\nconst roads = parseCsv(ref.road_register), hotspots = parseCsv(ref.hotspots), inspectors = parseCsv(ref.inspectors);\nconst rulesDoc = JSON.parse(ref.hazard_rules);\nconst rule = Object.fromEntries(rulesDoc.hazard_types.map(r => [r.hazard_code, r]));\nconst low = s => String(s || '').toLowerCase().trim();\nconst suburbArea = {};\ninspectors.forEach(ins => ins.suburbs.split(';').forEach(s => { suburbArea[low(s)] = ins.area; }));\nconst toRad = d => d * Math.PI / 180;\nconst distM = (a, b, c, d) => { const R = 6371000, x = toRad(c - a), y = toRad(d - b);\n  const h = Math.sin(x / 2) ** 2 + Math.cos(toRad(a)) * Math.cos(toRad(c)) * Math.sin(y / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(h)); };\nconst hash = s => { let h = 5381; for (const ch of s) h = ((h << 5) + h + ch.charCodeAt(0)) >>> 0; return h.toString(36).toUpperCase().slice(0, 6).padStart(6, '0'); };\n\nconst reports = [], other = [];\nitems.forEach((it, i) => {\n  if (it.kind !== 'report') { other.push(it); return; }\n  // ---- 1. map verification (OpenStreetMap / Nominatim)\n  let geo = null;\n  try { const g = JSON.parse($input.all()[i]?.json?.geo_raw || '[]'); geo = Array.isArray(g) && g.length ? g[0] : null; } catch (e) { geo = null; }\n  it.geo = { status: 'not_found' };\n  if (it.geocode_query && geo) {\n    const a = geo.address || {};\n    const osmRoad = a.road || a.pedestrian || '';\n    const osmSuburb = a.suburb || a.neighbourhood || a.quarter || a.city_district || a.town || '';\n    const rkey = x => low(x).replace(/ (road|street|drive|avenue|rd|st|dr)$/, '').replace(/[^a-z0-9]/g, '');\n    const roadOk = rkey(osmRoad) === rkey(it.road);\n    it.geo = { status: roadOk ? 'verified' : 'partial', lat: +geo.lat, lon: +geo.lon, osm_road: osmRoad, osm_suburb: osmSuburb,\n               precision: geo.addresstype || geo.type, display: geo.display_name };\n    if (!roadOk) it.flags.push(`map lookup returned \"${osmRoad || geo.display_name}\" not \"${it.road}\" - location needs checking`);\n    const ra = suburbArea[low(it.suburb_reported)], oa = suburbArea[low(osmSuburb)];\n    if (ra && oa && ra !== oa) it.flags.push(`resident said \"${it.suburb_reported}\" (${ra}), map says \"${osmSuburb}\" (${oa})`);\n  } else if (it.geocode_query) it.flags.push('address could not be verified on the map');\n\n  // ---- 2. area, road segment, hotspot\n  // OSM often returns ward names (\"Cape Town Ward 49\"), so prefer whichever suburb we can map to an area:\n  // the resident's own suburb first, then OSM's; keep the resident's wording for display.\n  const cands = [it.suburb_reported, it.geo.osm_suburb].filter(Boolean);\n  const suburb = cands.find(x => suburbArea[low(x)]) || it.suburb_reported || it.geo.osm_suburb || '';\n  const segs = roads.filter(r => low(r.road_name) === low(it.road));\n  let seg = segs.find(r => r.suburbs.split(';').some(x => cands.some(c => low(x) === low(c)))) || (segs.length === 1 ? segs[0] : null);\n  let area = suburbArea[low(suburb)] || seg?.area || '';\n  if (!seg && segs.length > 1 && area) seg = segs.find(r => r.area === area);\n  const crossSeg = roads.find(r => low(r.road_name) === low(it.cross_street) && (!area || r.area === area));\n  const pair = [low(it.road), low(it.cross_street)].sort().join('|');\n  let hs = hotspots.find(h => [low(h.road_a), low(h.road_b)].sort().join('|') === pair && (!area || h.area === area));\n  let hsHow = hs ? 'intersection match' : '';\n  if (!hs && it.geo.lat) {\n    const near = hotspots.map(h => [h, distM(it.geo.lat, it.geo.lon, +h.lat, +h.lon)]).sort((a, b) => a[1] - b[1])[0];\n    if (near && near[1] <= 200 && [low(near[0].road_a), low(near[0].road_b)].includes(low(it.road))) { hs = near[0]; hsHow = `within ${Math.round(near[1])} m`; }\n  }\n  if (!area && hs) area = hs.area;\n  if (!seg && it.road) it.flags.push(`\"${it.road}\" not in road register - defaults used (local road, 60 km/h, medium pedestrian volume)`);\n  if (!area) it.flags.push('could not determine area / inspector');\n  Object.assign(it, { area, suburb, seg, crossSeg, hs, hsHow,\n    lat: hs ? +hs.lat : it.geo.lat, lon: hs ? +hs.lon : it.geo.lon });\n  reports.push(it);\n});\n\n// ---- 3. deduplicate: same hazard + same place (intersection pair, house number, or <=120 m)\nconst placeKey = r => r.cross_street ? [low(r.road), low(r.cross_street)].sort().join('&') : `${low(r.road)}#${r.house_number || low(r.landmark) || ''}`;\nconst clusters = [];\nfor (const r of reports.filter(r => r.road)) {\n  const c = clusters.find(c => c.hazard_code === r.hazard_code && (c.key === placeKey(r) ||\n    (c.lat && r.lat && distM(c.lat, c.lon, r.lat, r.lon) <= 120 && low(c.reports[0].road) === low(r.road))));\n  if (c) c.reports.push(r); else clusters.push({ hazard_code: r.hazard_code, key: placeKey(r), lat: r.lat, lon: r.lon, reports: [r] });\n}\nreports.filter(r => !r.road).forEach(r => clusters.push({ hazard_code: r.hazard_code, key: `nolocation#${r.email_id}`, reports: [r], incomplete: true }));\n\n// ---- 4. risk score (formula published in hazard_response_rules.json)\nconst PED = { High: 1.5, Medium: 1.2, Low: 1.0 };\nconst now = Date.now();\nconst cases = clusters.map(c => {\n  const r0 = c.reports.find(r => r.geo.status === 'verified') || c.reports.slice().sort((a, b) => a.received.localeCompare(b.received))[0];\n  const rl = rule[c.hazard_code], seg = r0.seg, cs = r0.crossSeg, hs = r0.hs;\n  const n = c.reports.length;\n  let flags = [...new Set(c.reports.flatMap(r => r.flags))];\n  if (c.reports.some(r => r.geo.status === 'verified')) flags = flags.filter(f => f !== 'address could not be verified on the map');\n  const log = c.reports.flatMap(r => r.log.map(l => `${r.email_id}: ${l}`));\n  if (n > 1) log.push(`merged ${n} reports of the same hazard (${c.reports.map(r => r.language).join(', ')})`);\n  const speed = Math.max(+(seg?.speed_limit_kmh || 60), +(cs?.speed_limit_kmh || 0));\n  const pedVol = [seg?.pedestrian_volume, cs?.pedestrian_volume].includes('High') ? 'High' : [seg?.pedestrian_volume, cs?.pedestrian_volume].includes('Medium') || !seg ? 'Medium' : 'Low';\n  const fs = Math.round(speed / 60 * 100) / 100, fp = PED[pedVol];\n  const fh = hs ? Math.min(3, Math.round((1 + 0.2 * +hs.fatal + 0.05 * +hs.serious) * 100) / 100) : 1;\n  const fr = Math.min(1.5, Math.round((1 + 0.1 * (n - 1)) * 100) / 100);\n  const score = Math.round(rl.severity * fs * fp * fh * fr * 10) / 10;\n  const breakdown = `${rl.severity} severity (${c.hazard_code}) \u00d7 ${fs} speed (${speed} km/h) \u00d7 ${fp} pedestrians (${pedVol}) \u00d7 ${fh} hotspot` +\n    (hs ? ` (${hs.hotspot_id}: ${hs.fatal} fatal, ${hs.serious} serious)` : ' (none)') + ` \u00d7 ${fr} reports (${n}) = ${score}`;\n  let band = score >= 12 ? 'P1' : score >= 6 ? 'P2' : 'P3';\n  const why = [];\n  if (c.hazard_code === 'traffic_signal_outage' && hs && band !== 'P1') { band = 'P1'; why.push('override: signal outage at a hotspot is always P1'); }\n  const national = [seg?.jurisdiction, cs?.jurisdiction].some(j => String(j || '').startsWith('National'));\n  if (national) { band = 'REFERRED'; why.push('national road - referred to SANRAL'); }\n  if (c.incomplete) { band = 'INCOMPLETE'; why.push('no location - resident asked for details'); }\n  const capH = band === 'P1' ? 4 : band === 'P2' ? Math.min(48, rl.repair_deadline_hours) : rl.repair_deadline_hours;\n  const first = Math.min(...c.reports.map(r => Date.parse(r.received) || now));\n  const label = { P1: 'P1 - Urgent', P2: 'P2 - High', P3: 'P3 - Routine', REFERRED: 'REFERRED - SANRAL', INCOMPLETE: 'INCOMPLETE - needs location' }[band];\n  const ins = inspectors.find(i => i.area === r0.area);\n  const where = r0.road ? (r0.cross_street ? `${r0.road} & ${r0.cross_street}` : `${r0.house_number ? r0.house_number + ' ' : ''}${r0.road}${r0.landmark ? ' (' + r0.landmark + ')' : ''}`) + (r0.suburb ? `, ${r0.suburb}` : '') : 'Location not provided';\n  return {\n    case_id: 'SRD-' + hash(`${c.hazard_code}|${c.key}`), priority: label, band, risk_score: band === 'INCOMPLETE' ? 0 : score, score_breakdown: band === 'INCOMPLETE' ? 'not scored - location missing' : breakdown,\n    priority_reason: why.join('; '), hazard_code: c.hazard_code, hazard_label: rl.description, department: national ? 'SANRAL (referral)' : rl.department,\n    inspection_required: !national && !c.incomplete && (rl.inspection_required === true || band === 'P1' || band === 'P2'),\n    location_text: where, road: r0.road, cross_street: r0.cross_street, suburb: r0.suburb, area: r0.area,\n    lat: r0.lat ?? '', lon: r0.lon ?? '', geocode_status: r0.geo.status, hotspot_id: hs?.hotspot_id || '', hotspot_match: r0.hsHow,\n    reports: n, languages: [...new Set(c.reports.map(r => r.language))].join(', '),\n    first_reported: new Date(first).toISOString(), due_by: new Date(Math.max(first, now) + capH * 3600e3).toISOString(),\n    inspector_id: ins?.inspector_id || '', inspector: ins?.name || '',\n    residents: c.reports.map(r => ({ email_id: r.email_id, name: r.resident.name, email: r.resident.email, phone: r.resident.phone, language: r.language })),\n    summary_en: r0.hazard_summary_en, danger_signals: [...new Set(c.reports.flatMap(r => r.danger_signals || []))].join('; '),\n    flags: flags.join(' | '), corrections: log.join(' | '), sources: c.reports.map(r => `email:${r.email_id}`).join(' ; '),\n  };\n});\nconst order = { P1: 0, P2: 1, P3: 2, INCOMPLETE: 3, REFERRED: 4 };\ncases.sort((a, b) => order[a.band] - order[b.band] || b.risk_score - a.risk_score);\nconst skipped = other.map(o => ({ email_id: o.email_id, subject: o.subject, kind: o.kind, reason: o.reason || o.flags?.join('; ') || '' }));\nreturn cases.map((c, i) => ({ json: { ...c, _skipped: i === 0 ? skipped : undefined } }));\n"
       }
     },
     {
-      "id": "b4d0e02d-c8aa-43bf-bb4e-3b81fc66ad08",
+      "id": "3eee27bc-3378-4e43-bc44-2839b63045a7",
       "name": "Read Inspector Calendar",
       "type": "n8n-nodes-base.googleCalendar",
       "typeVersion": 1.3,
@@ -317,7 +317,7 @@
       "alwaysOutputData": true
     },
     {
-      "id": "20a80c92-30ed-4513-b96e-0592dcc15cce",
+      "id": "211c6482-49f5-465b-b8a6-f09cc9c8c629",
       "name": "Schedule Inspections",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -330,7 +330,7 @@
       }
     },
     {
-      "id": "652aae09-df08-40ff-a06f-e81f10e11d53",
+      "id": "1b067909-f735-4b9c-b01d-42b26336cb7c",
       "name": "Needs New Event?",
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
@@ -347,7 +347,7 @@
           },
           "conditions": [
             {
-              "id": "96de7ed1-81ea-4aa7-8d78-3e673e8ec912",
+              "id": "b68100bc-3309-4aef-9c3a-bb4a9503f5d6",
               "leftValue": "={{ $json.calendar_action }}",
               "rightValue": "create",
               "operator": {
@@ -362,7 +362,7 @@
       }
     },
     {
-      "id": "cd6664fa-62c9-4709-a383-2d90e772a095",
+      "id": "0156bf7e-1460-4194-83aa-93212ce03458",
       "name": "Book Inspection (Calendar)",
       "type": "n8n-nodes-base.googleCalendar",
       "typeVersion": 1.3,
@@ -389,7 +389,7 @@
       }
     },
     {
-      "id": "79ce34eb-fe40-4a4d-910d-b02cb261d44a",
+      "id": "36be254c-07f4-49b4-adae-f8d279278bab",
       "name": "Sheet Rows",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -402,7 +402,7 @@
       }
     },
     {
-      "id": "81faa6e4-95c5-41e0-b6a5-0aad1968c9d6",
+      "id": "d4c79ba1-82f1-4486-999f-c8d27a353fec",
       "name": "Update Command Centre Sheet",
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.5,
@@ -434,7 +434,7 @@
       }
     },
     {
-      "id": "453de4bf-a62d-43c7-b767-134a274d566b",
+      "id": "e93ba1fe-1b2f-485c-af91-62eb0d866c3d",
       "name": "Convert to CSV",
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
@@ -450,7 +450,7 @@
       }
     },
     {
-      "id": "410249f1-ab40-41ea-854a-7af29bffacdf",
+      "id": "9d9d1290-068e-439c-b881-ab145a381155",
       "name": "Build Report",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -463,7 +463,7 @@
       }
     },
     {
-      "id": "bc73addc-48ef-4bd5-adf4-83497750d83b",
+      "id": "c50ccf9e-b4a7-4871-a472-d30722c19b5c",
       "name": "Email Run Report",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
@@ -489,7 +489,7 @@
       }
     },
     {
-      "id": "93bd66a3-372a-4e43-8f86-201aff0fae9d",
+      "id": "171e0e34-afe3-4cb3-8d0d-a95cb25ba9dc",
       "name": "Reply Targets",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -502,7 +502,7 @@
       }
     },
     {
-      "id": "6d84a9bc-ff31-4e2d-91b9-69f31aed234a",
+      "id": "d246b912-ff0d-42a4-a163-47b11c108584",
       "name": "Draft Reply in Resident's Language (Claude)",
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.5,
@@ -518,7 +518,7 @@
       "maxTries": 2
     },
     {
-      "id": "fbf30d5f-ed53-4de0-9491-1882bb7d139e",
+      "id": "85eb4ebc-bb1d-47d4-a2e1-7113585dc76b",
       "name": "Assemble Replies",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
@@ -531,7 +531,7 @@
       }
     },
     {
-      "id": "fc07190e-2a82-4291-af2a-046928cf4722",
+      "id": "cd529d16-5dc7-4ad0-90fd-86cea2ae5419",
       "name": "Send Resident Reply",
       "type": "n8n-nodes-base.gmail",
       "typeVersion": 2.1,
@@ -550,7 +550,7 @@
       }
     },
     {
-      "id": "3b985ec8-00f2-4810-8a8b-01398f81d584",
+      "id": "2b710587-ae5c-4670-b0b4-2b5e278b43bf",
       "name": "Claude (extraction)",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
@@ -566,7 +566,7 @@
       }
     },
     {
-      "id": "685aa6f7-671e-47eb-8f11-58727e11c007",
+      "id": "bc8bee3f-4d95-4ca7-a7a4-0744e1a91606",
       "name": "Claude (replies)",
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
@@ -582,7 +582,7 @@
       }
     },
     {
-      "id": "a20fbf22-7a33-4a7d-9240-be7c8ca28ed6",
+      "id": "1e0f09da-de5d-4749-a666-aebfb5ffc373",
       "name": "Note 1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -598,7 +598,7 @@
       }
     },
     {
-      "id": "01531f08-fc28-4ab1-93d6-6e8552bc5415",
+      "id": "d6c7015f-85fa-41b8-b982-5d8669b1989e",
       "name": "Note 2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -614,7 +614,7 @@
       }
     },
     {
-      "id": "72322f03-117b-445c-99e1-6d534d42e928",
+      "id": "ebc4f906-bfb2-485c-ab98-428fd0b3249d",
       "name": "Note 3",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
@@ -630,7 +630,7 @@
       }
     },
     {
-      "id": "ccbeea9d-7862-493a-8bcd-dbe856da09c3",
+      "id": "aa185917-29c3-494a-84c6-920119443a97",
       "name": "Note 4",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,

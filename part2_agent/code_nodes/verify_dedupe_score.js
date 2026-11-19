@@ -37,18 +37,22 @@ items.forEach((it, i) => {
     const a = geo.address || {};
     const osmRoad = a.road || a.pedestrian || '';
     const osmSuburb = a.suburb || a.neighbourhood || a.quarter || a.city_district || a.town || '';
-    const roadOk = low(osmRoad).replace(/ (road|street|drive|avenue)$/, '') === low(it.road).replace(/ (road|street|drive|avenue)$/, '');
+    const rkey = x => low(x).replace(/ (road|street|drive|avenue|rd|st|dr)$/, '').replace(/[^a-z0-9]/g, '');
+    const roadOk = rkey(osmRoad) === rkey(it.road);
     it.geo = { status: roadOk ? 'verified' : 'partial', lat: +geo.lat, lon: +geo.lon, osm_road: osmRoad, osm_suburb: osmSuburb,
                precision: geo.addresstype || geo.type, display: geo.display_name };
     if (!roadOk) it.flags.push(`map lookup returned "${osmRoad || geo.display_name}" not "${it.road}" - location needs checking`);
-    if (it.suburb_reported && osmSuburb && low(osmSuburb) !== low(it.suburb_reported) && !suburbArea[low(it.suburb_reported)])
-      it.flags.push(`resident said "${it.suburb_reported}", map says "${osmSuburb}"`);
+    const ra = suburbArea[low(it.suburb_reported)], oa = suburbArea[low(osmSuburb)];
+    if (ra && oa && ra !== oa) it.flags.push(`resident said "${it.suburb_reported}" (${ra}), map says "${osmSuburb}" (${oa})`);
   } else if (it.geocode_query) it.flags.push('address could not be verified on the map');
 
   // ---- 2. area, road segment, hotspot
-  const suburb = it.geo.osm_suburb || it.suburb_reported;
+  // OSM often returns ward names ("Cape Town Ward 49"), so prefer whichever suburb we can map to an area:
+  // the resident's own suburb first, then OSM's; keep the resident's wording for display.
+  const cands = [it.suburb_reported, it.geo.osm_suburb].filter(Boolean);
+  const suburb = cands.find(x => suburbArea[low(x)]) || it.suburb_reported || it.geo.osm_suburb || '';
   const segs = roads.filter(r => low(r.road_name) === low(it.road));
-  let seg = segs.find(r => r.suburbs.split(';').some(s => low(s) === low(suburb))) || (segs.length === 1 ? segs[0] : null);
+  let seg = segs.find(r => r.suburbs.split(';').some(x => cands.some(c => low(x) === low(c)))) || (segs.length === 1 ? segs[0] : null);
   let area = suburbArea[low(suburb)] || seg?.area || '';
   if (!seg && segs.length > 1 && area) seg = segs.find(r => r.area === area);
   const crossSeg = roads.find(r => low(r.road_name) === low(it.cross_street) && (!area || r.area === area));
